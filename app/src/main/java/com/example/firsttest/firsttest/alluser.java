@@ -1,8 +1,11 @@
 package com.example.firsttest.firsttest;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.Toast;
 
@@ -15,8 +18,11 @@ import de.codecrafters.tableview.toolkit.SimpleTableHeaderAdapter;
 
 public class alluser extends AppCompatActivity {
 
-    String [] tableHeader={"ID", "Benutzername", "BerechtigungID", "Telefon"};
-    String [][] tableContent;
+   private String [] tableHeader={"ID", "Benutzername", "BerechtigungID", "Telefon"};
+   private String [][] tableContent;
+   private Button goback, newUser;
+
+   //ToDo Beim horizontal scrollen, ist es mit der view implementiert aber die Spaltenzeilen an sich passen sich noch nicht ganz an und es kürz auptmatisch mit ... ab (Bug)
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,14 +47,105 @@ public class alluser extends AppCompatActivity {
             }
         });
 
-    }
+        goback = findViewById(R.id.zuruck);
+        newUser = findViewById(R.id.neuerBenutzer);
 
+
+        goback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(alluser.this, Menunavigation.class));
+            }
+
+        });
+
+        newUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent (alluser.this, RegisterActivity.class));
+            }
+        });
+
+    }
     private void fillData(){
         AllUserTableTop usertable = new AllUserTableTop();
         ArrayList<AllUserTableTop> userlist = new ArrayList<>();
 
         //ToDo: getUsertable from database and insert it here dynamically instead static
 
+        usertable.setId("1");
+        usertable.setUsername("Dummy");
+        usertable.setPermissionID("2");
+        usertable.setPhone("074329876");
+        userlist.add(usertable);
+
+        usertable.setId("1");
+        usertable.setUsername("test2");
+        usertable.setPermissionID("2");
+        usertable.setPhone("074329876");
+        userlist.add(usertable);
+        usertable.setId("1");
+
+        usertable.setUsername("test3");
+        usertable.setPermissionID("2");
+        usertable.setPhone("074329876");
+        userlist.add(usertable);
+
+        usertable.setId("1");
+        usertable.setUsername("Dummy");
+        usertable.setPermissionID("2");
+        usertable.setPhone("074329876");
+        userlist.add(usertable);
+        usertable.setId("1");
+        usertable.setUsername("Dummy");
+        usertable.setPermissionID("2");
+        usertable.setPhone("074329876");
+        userlist.add(usertable);
+        usertable.setId("1");
+        usertable.setUsername("Dummy");
+        usertable.setPermissionID("2");
+        usertable.setPhone("074329876");
+        userlist.add(usertable);
+        usertable.setId("1");
+        usertable.setUsername("Dummy");
+        usertable.setPermissionID("2");
+        usertable.setPhone("074329876");
+        userlist.add(usertable);
+        usertable.setId("1");
+        usertable.setUsername("Dummy");
+        usertable.setPermissionID("2");
+        usertable.setPhone("074329876");
+        userlist.add(usertable);
+        usertable.setId("1");
+        usertable.setUsername("Dummy");
+        usertable.setPermissionID("2");
+        usertable.setPhone("074329876");
+        userlist.add(usertable);
+        usertable.setId("1");
+        usertable.setUsername("Dummy");
+        usertable.setPermissionID("2");
+        usertable.setPhone("074329876");
+        userlist.add(usertable);
+        usertable.setId("1");
+        usertable.setUsername("Dummy");
+        usertable.setPermissionID("2");
+        usertable.setPhone("074329876");
+        userlist.add(usertable);
+        usertable.setId("1");
+        usertable.setUsername("Dummy");
+        usertable.setPermissionID("2");
+        usertable.setPhone("074329876");
+        userlist.add(usertable);
+        usertable.setId("1");
+        usertable.setUsername("Dummy");
+        usertable.setPermissionID("2");
+        usertable.setPhone("074329876");
+        userlist.add(usertable);
+        usertable.setId("1");
+        usertable.setUsername("Dummy");
+        usertable.setPermissionID("2");
+        usertable.setPhone("074329876");
+        userlist.add(usertable);
         usertable.setId("1");
         usertable.setUsername("Dummy");
         usertable.setPermissionID("2");

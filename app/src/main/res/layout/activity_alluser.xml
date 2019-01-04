@@ -10,12 +10,60 @@
     android:paddingTop="16dp"
     tools:context=".alluser">
 
-    <de.codecrafters.tableview.TableView
-        android:id="@+id/tableView"
-        android:layout_width="wrap_content"
+
+    <LinearLayout
         android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_alignParentTop="true"
         >
+        <SearchView
+            android:id="@+id/searchView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:queryHint="Suchen..."
+            android:iconifiedByDefault="false"
+            android:clickable="true"
+            android:layout_alignParentTop="true"
+            />
+    </LinearLayout>
 
-    </de.codecrafters.tableview.TableView>
+    <HorizontalScrollView
+        android:id="@+id/horizontalscrollView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="60dp"
+        android:scrollbars="horizontal">
 
+        <de.codecrafters.tableview.TableView
+            android:id="@+id/tableView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            >
+        </de.codecrafters.tableview.TableView>
+
+    </HorizontalScrollView >
+
+
+
+    <LinearLayout
+        android:id="@+id/LinearLayout02"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true">
+        <Button
+            android:id="@+id/zuruck"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Zurück">
+        </Button>
+        <Button
+            android:id="@+id/neuerBenutzer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Neuer Benutzer">
+        </Button>
+    </LinearLayout>
 </RelativeLayout>
