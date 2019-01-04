@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/pop_bg"
+    android:fillViewport="true"
+    tools:context=".MainActivity"
+    >
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kontaktdaten:"
+        android:textStyle="bold"
+        android:textSize="17dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+
+        app:layout_constraintLeft_toLeftOf="@id/vorname"
+        app:layout_constraintRight_toRightOf="@id/vorname"
+        app:layout_constraintTop_toTopOf="@id/vorname"
+
+        />
+
+    <EditText
+        android:id="@+id/vorname"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="50dp"
+
+        android:background="#11000000"
+        android:hint="Vorname"
+        android:inputType="textPersonName"
+        android:textSize="17dp"
+
+        app:layout_constraintLeft_toLeftOf="@id/vorname"
+        app:layout_constraintRight_toRightOf="@id/vorname"
+        app:layout_constraintTop_toTopOf="@id/vorname"
+        />
+
+
+    <EditText
+        android:id="@+id/nachname"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="90dp"
+
+        android:background="#11000000"
+        android:hint="Nachname"
+        android:inputType="textPersonName"
+        android:textSize="17dp"
+
+        app:layout_constraintLeft_toLeftOf="@id/vorname"
+        app:layout_constraintRight_toRightOf="@id/vorname"
+        app:layout_constraintTop_toTopOf="@id/vorname"
+        />
+
+    <EditText
+        android:id="@+id/strasse"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="130dp"
+
+        android:background="#11000000"
+        android:hint="Straße"
+        android:inputType="textPersonName"
+        android:textSize="17dp"
+
+        app:layout_constraintLeft_toLeftOf="@id/vorname"
+        app:layout_constraintRight_toRightOf="@id/vorname"
+        app:layout_constraintTop_toTopOf="@id/vorname"
+        />
+
+    <EditText
+        android:id="@+id/hausnummer"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="220dp"
+        android:layout_marginTop="130dp"
+
+        android:background="#11000000"
+        android:hint="Nr."
+        android:inputType="textPersonName"
+        android:textSize="17dp"
+
+        app:layout_constraintLeft_toLeftOf="@id/vorname"
+        app:layout_constraintRight_toRightOf="@id/vorname"
+        app:layout_constraintTop_toTopOf="@id/vorname"
+        />
+
+    <EditText
+        android:id="@+id/zusatzadresse"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="170dp"
+
+        android:background="#11000000"
+        android:hint="Zusatzadresse"
+        android:inputType="textPersonName"
+        android:textSize="17dp"
+
+        app:layout_constraintLeft_toLeftOf="@id/vorname"
+        app:layout_constraintRight_toRightOf="@id/vorname"
+        app:layout_constraintTop_toTopOf="@id/vorname"
+        />
+
+    <EditText
+        android:id="@+id/plz"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="210dp"
+
+        android:background="#11000000"
+        android:hint="PLZ"
+        android:inputType="textPersonName"
+        android:textSize="17dp"
+
+        app:layout_constraintLeft_toLeftOf="@id/vorname"
+        app:layout_constraintRight_toRightOf="@id/vorname"
+        app:layout_constraintTop_toTopOf="@id/vorname"
+        />
+
+    <EditText
+        android:id="@+id/Ort"
+        android:layout_width="170dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="210dp"
+
+        android:background="#11000000"
+        android:hint="Ort"
+        android:inputType="textPersonName"
+        android:textSize="17dp"
+
+        app:layout_constraintLeft_toLeftOf="@id/vorname"
+        app:layout_constraintRight_toRightOf="@id/vorname"
+        app:layout_constraintTop_toTopOf="@id/vorname"
+        />
+
+    <EditText
+        android:id="@+id/telefonnummer"
+        android:layout_width="170dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="250dp"
+
+        android:background="#11000000"
+        android:hint="Telefon"
+        android:inputType="textPersonName"
+        android:textSize="17dp"
+
+        app:layout_constraintLeft_toLeftOf="@id/vorname"
+        app:layout_constraintRight_toRightOf="@id/vorname"
+        app:layout_constraintTop_toTopOf="@id/vorname"
+        />
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Anmeldedaten:"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginLeft="10dp"
+
+        app:layout_constraintLeft_toLeftOf="@id/vorname"
+        app:layout_constraintRight_toRightOf="@id/vorname"
+        app:layout_constraintTop_toTopOf="@id/vorname"
+
+        />
+
+    <EditText
+        android:id="@+id/loginUsername"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="330dp"
+        android:background="#11000000"
+        android:hint="Benutzername"
+        android:inputType="textPersonName"
+        android:textSize="17dp"
+
+        app:layout_constraintLeft_toLeftOf="@id/vorname"
+        app:layout_constraintRight_toRightOf="@id/vorname"
+        app:layout_constraintTop_toTopOf="@id/vorname"
+        />
+
+    <EditText
+        android:id="@+id/loginPassword"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="370dp"
+        android:background="#11000000"
+        android:hint="Passwort"
+        android:inputType="textPassword"
+        android:layout_marginLeft="10dp"
+        android:textSize="17dp"
+
+        app:layout_constraintLeft_toLeftOf="@id/vorname"
+        app:layout_constraintRight_toRightOf="@id/vorname"
+        app:layout_constraintTop_toTopOf="@id/vorname"
+
+        />
+
+    <EditText
+        android:id="@+id/loginPasswordConfirm"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="410dp"
+        android:layout_marginLeft="10dp"
+        android:background="#11000000"
+        android:hint="Passwort bestätigen"
+        android:inputType="textPassword"
+        android:textSize="17dp"
+        app:layout_constraintLeft_toLeftOf="@id/vorname"
+        app:layout_constraintRight_toRightOf="@id/vorname"
+        app:layout_constraintTop_toTopOf="@id/vorname"
+        />
+
+    <Spinner
+        android:id="@+id/dropdownperm"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown"
+        android:layout_marginLeft="290dp"
+        android:layout_marginTop="400dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        ></Spinner>
+
+    <Button
+        android:id="@+id/buttonRegistrieren2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="450dp"
+        android:layout_marginLeft="140dp"
+        android:text="Registrieren"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
+    </Button>
+
+</RelativeLayout>
+</ScrollView>
