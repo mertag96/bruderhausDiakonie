@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
             butAnmelden.setOnClickListener(new OnClickListener(){
                 @Override
                 public void onClick(View v){
-
+                    permission = 1;
                     //TODO: Get information from database about user and check if valid credentials entered & get permission and userID
 
                     //checking that username and password fields are filled before the redirecting can work
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
                         if(permission == 1){
                             goToMenuNavi = new Intent(MainActivity.this, Menunavigation.class);
                             goToMenuNavi.putExtra("permission",permission);
-                            goToMenuNavi.putExtra("userID",userID);
+                           // goToMenuNavi.putExtra("userID",userID);
                             loading.setVisibility(View.VISIBLE);
                             startActivity(goToMenuNavi);
                             loading.setVisibility(View.INVISIBLE);

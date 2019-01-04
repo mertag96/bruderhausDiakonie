@@ -30,6 +30,9 @@
         <activity
             android:name=".PopActivity"
             android:theme="@style/AppTheme.PopMe" />
+        <activity android:name=".alluser"
+            ></activity>
+
     </application>
 
 </manifest>

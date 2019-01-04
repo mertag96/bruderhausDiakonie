@@ -18,7 +18,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 public class Menunavigation extends AppCompatActivity{
-       ImageView newUser;
+       ImageView newUser, allUser;
 
 @Override
 protected void onCreate(Bundle savedInstanceState) {
@@ -27,22 +27,23 @@ protected void onCreate(Bundle savedInstanceState) {
 
 
         newUser= findViewById((R.id.neuerBenutzer));
+        allUser = findViewById(R.id.alleUser);
 
 
         //Navigating to menunavigation page after listen on anmelden button
         newUser.setOnClickListener(new View.OnClickListener(){
-@Override
-public void onClick(View v){
+        @Override
+        public void onClick(View v){
         startActivity(new Intent(Menunavigation.this, RegisterActivity.class));
         }
         });
 
 
-       // allUser.setOnClickListener(new View.OnClickListener(){
-            //    @Override
-            //    public void onClick(View v){
-                   //     startActivity(new Intent(Menunavigation.this, AllUsersActivity.class));
-               // }
-    //    });
+       allUser.setOnClickListener(new View.OnClickListener(){
+               @Override
+               public void onClick(View v){
+                      startActivity(new Intent(Menunavigation.this, alluser.class));
+                }
+        });
 }
 }
