@@ -15,9 +15,11 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Intent goToMenuNavi;
     private Button butAnmelden;
     private TextView username, password;
     private ProgressBar loading;
+    private int permission, userID;
 
 
     @Override
@@ -34,12 +36,12 @@ public class MainActivity extends AppCompatActivity {
         loading= findViewById(R.id.loadingPanel);
 
         loading.setVisibility(View.GONE);
-
-
             //Navigating to menunavigation page after listen on anmelden button
             butAnmelden.setOnClickListener(new OnClickListener(){
                 @Override
                 public void onClick(View v){
+
+                    //TODO: Get information from database about user and check if valid credentials entered & get permission and userID
 
                     //checking that username and password fields are filled before the redirecting can work
                     if(username.getText().toString().trim().equals("") || password.getText().toString().trim().equals("")) {
@@ -47,10 +49,17 @@ public class MainActivity extends AppCompatActivity {
                        Toast.makeText(getApplicationContext(), "Bitte Benutzername und Passwort eingeben", Toast.LENGTH_SHORT).show();
                     }else{
                         //Loading Panel wird hier erst angezeigt, bis es zur nächsten Activity übergegangen wird
-                        loading.setVisibility(View.VISIBLE);
-
-                        startActivity(new Intent(MainActivity.this, Menunavigation.class));
-
+                        if(permission == 1){
+                            goToMenuNavi = new Intent(MainActivity.this, Menunavigation.class);
+                            goToMenuNavi.putExtra("permission",permission);
+                            goToMenuNavi.putExtra("userID",userID);
+                            loading.setVisibility(View.VISIBLE);
+                            startActivity(goToMenuNavi);
+                            loading.setVisibility(View.INVISIBLE);
+                        }else{
+                            //go to menuplan
+                            //add permission as extras to intent
+                        }
                 }
             }});
 
