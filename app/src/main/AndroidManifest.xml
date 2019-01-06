@@ -30,9 +30,8 @@
         <activity
             android:name=".PopActivity"
             android:theme="@style/AppTheme.PopMe" />
-        <activity android:name=".alluser"
-            ></activity>
-
+        <activity android:name=".alluser" />
+        <activity android:name=".Menuplan"></activity>
     </application>
 
 </manifest>

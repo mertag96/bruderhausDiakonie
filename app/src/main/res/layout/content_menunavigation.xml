@@ -139,6 +139,7 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
+                    android:id="@+id/menuplan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -176,6 +177,7 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
+                    android:id="@+id/allorders"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"

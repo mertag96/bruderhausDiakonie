@@ -18,7 +18,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 public class Menunavigation extends AppCompatActivity{
-       ImageView newUser, allUser;
+       ImageView newUser, allUser, menuplan, allOrders;
 
 @Override
 protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +28,11 @@ protected void onCreate(Bundle savedInstanceState) {
 
         newUser= findViewById((R.id.neuerBenutzer));
         allUser = findViewById(R.id.alleUser);
+        menuplan = findViewById(R.id.menuplan);
+        allOrders = findViewById(R.id.allorders);
 
 
-        //Navigating to menunavigation page after listen on anmelden button
+        //Navigating to 4 different activities
         newUser.setOnClickListener(new View.OnClickListener(){
         @Override
         public void onClick(View v){
@@ -45,5 +47,19 @@ protected void onCreate(Bundle savedInstanceState) {
                       startActivity(new Intent(Menunavigation.this, alluser.class));
                 }
         });
+
+        menuplan.setOnClickListener(new View.OnClickListener(){
+        @Override
+        public void onClick(View v){
+            startActivity(new Intent(Menunavigation.this, Menuplan.class));
+        }
+          });
+
+       //  allOrders.setOnClickListener(new View.OnClickListener(){
+    //    @Override
+      //  public void onClick(View v){
+       //     startActivity(new Intent(Menunavigation.this, alluser.class));
+       //       }
+  //  });
 }
 }
