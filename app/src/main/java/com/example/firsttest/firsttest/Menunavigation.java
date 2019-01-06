@@ -55,11 +55,11 @@ protected void onCreate(Bundle savedInstanceState) {
         }
           });
 
-       //  allOrders.setOnClickListener(new View.OnClickListener(){
-    //    @Override
-      //  public void onClick(View v){
-       //     startActivity(new Intent(Menunavigation.this, alluser.class));
-       //       }
-  //  });
+         allOrders.setOnClickListener(new View.OnClickListener(){
+        @Override
+        public void onClick(View v){
+            startActivity(new Intent(Menunavigation.this, AllOrders.class));
+             }
+    });
 }
 }

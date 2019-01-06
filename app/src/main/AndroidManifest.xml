@@ -27,11 +27,9 @@
             android:name=".Menunavigation"
             android:label="@string/title_activity_menunavigation"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".PopActivity"
-            android:theme="@style/AppTheme.PopMe" />
         <activity android:name=".alluser" />
-        <activity android:name=".Menuplan"></activity>
+        <activity android:name=".Menuplan" />
+        <activity android:name=".AllOrders"></activity>
     </application>
 
 </manifest>
