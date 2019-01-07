@@ -93,4 +93,25 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/LinearLayout02"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true">
+        <Button
+            android:id="@+id/zuruck"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Zurück">
+        </Button>
+        <Button
+            android:id="@+id/bearbeiten"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Bearbeiten">
+        </Button>
+    </LinearLayout>
+
 </RelativeLayout>
