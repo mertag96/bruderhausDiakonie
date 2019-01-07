@@ -12,6 +12,18 @@
 
 
     <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alle Benutzer"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:layout_alignParentTop="true"
@@ -24,26 +36,32 @@
             android:iconifiedByDefault="false"
             android:clickable="true"
             android:layout_alignParentTop="true"
+            android:layout_marginTop="35dp"
             />
     </LinearLayout>
 
+
     <HorizontalScrollView
         android:id="@+id/horizontalscrollView"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_marginTop="60dp"
-        android:scrollbars="horizontal">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:layout_marginTop="100dp"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-        <de.codecrafters.tableview.TableView
-            android:id="@+id/tableView"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:orientation="horizontal"
-            >
-        </de.codecrafters.tableview.TableView>
+            <de.codecrafters.tableview.TableView
+                android:id="@+id/tableView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+            </de.codecrafters.tableview.TableView>
+        </LinearLayout>
+
 
     </HorizontalScrollView >
-
 
 
     <LinearLayout
@@ -56,6 +74,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+
             android:text="Zurück">
         </Button>
         <Button
@@ -66,4 +85,5 @@
             android:text="Neuer Benutzer">
         </Button>
     </LinearLayout>
+
 </RelativeLayout>

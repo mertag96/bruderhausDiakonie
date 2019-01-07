@@ -27,7 +27,8 @@
             android:name=".Menunavigation"
             android:label="@string/title_activity_menunavigation"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".alluser" />
+        <activity android:name=".alluser"
+            android:windowSoftInputMode="adjustNothing"/>
         <activity android:name=".Menuplan" />
         <activity android:name=".AllOrders"></activity>
     </application>
