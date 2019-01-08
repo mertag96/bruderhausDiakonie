@@ -27,10 +27,12 @@
             android:name=".Menunavigation"
             android:label="@string/title_activity_menunavigation"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".alluser"
-            android:windowSoftInputMode="adjustNothing"/>
+        <activity
+            android:name=".alluser"
+            android:windowSoftInputMode="adjustNothing" />
         <activity android:name=".Menuplan" />
-        <activity android:name=".AllOrders"></activity>
+        <activity android:name=".AllOrders" />
+        <activity android:name=".searchCustomerPopup"></activity>
     </application>
 
 </manifest>

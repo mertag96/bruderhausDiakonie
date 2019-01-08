@@ -8,4 +8,12 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+
+
+    <string-array name="customers">
+        <item>Bitte wählen Sie eine Option aus...</item>
+        <item>Dummy 1</item>
+        <item>Dummy 2</item>
+        <item>Dummy 3</item>
+    </string-array>
 </resources>
