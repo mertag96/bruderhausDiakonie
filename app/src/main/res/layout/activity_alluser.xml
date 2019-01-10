@@ -11,17 +11,27 @@
     tools:context=".alluser">
 
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        >
         <TextView
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Alle Benutzer"
+            android:layout_width="match_parent"
             android:textSize="25dp"
+            android:textColor="#000000"
             android:textStyle="bold"
+            android:text="@string/allUser_header"
             />
-    </LinearLayout>
+        <ImageButton
+            android:id="@+id/logoutButton"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/threedotslogout"
+            android:layout_marginTop="2dp"
+            android:layout_marginLeft="320dp"
+            />
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_height="wrap_content"

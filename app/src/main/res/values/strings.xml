@@ -10,10 +10,28 @@
     <string name="action_settings">Settings</string>
 
 
+    <!-- here you can write the header textes of an activity page. you can get the string in the xml
+    over e. g. == android:text="@string/register_header" use as style also this command in the
+    header view: android:style="@style/app_header" -->
+    <string name="register_header">Neuer Benutzer</string>
+    <string name="allUser_header">Alle Benutzer</string>
+    <string name="allOrders_header">Alle Bestellungen</string>
+    <string name="menuplan_header">Menüplan</string>
+    <string name="menunavigation_header">Menü</string>
+
+    <string-array name="user_type">
+        <item>Küche</item>
+        <item>Service</item>
+        <item>Kunde</item>
+    </string-array>
+
     <string-array name="customers">
         <item>Bitte wählen Sie eine Option aus...</item>
         <item>Dummy 1</item>
         <item>Dummy 2</item>
         <item>Dummy 3</item>
     </string-array>
+    <string name="usertype_prompt">Bitte wählen Sie aus</string>
+
+
 </resources>

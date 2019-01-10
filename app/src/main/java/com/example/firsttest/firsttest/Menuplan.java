@@ -19,9 +19,11 @@ import java.util.Calendar;
 
 public class Menuplan extends AppCompatActivity {
 
-    private Button fromDate, toDate, back, order;
-    private TextView fromTxtView, toTxtView;
+    private Button fromDate, back, order;
+    private Spinner spinner;
+    private TextView fromTxtView;
     private Context context = this;
+    private static final String [] items = {"Bitte Kunde auswählen"};
 
 
     @Override
@@ -32,11 +34,20 @@ public class Menuplan extends AppCompatActivity {
         fromDate = findViewById(R.id.fromDate);
         fromTxtView = findViewById(R.id.fromtvSelectedDate);
 
-        toDate = findViewById(R.id.toDate);
-        toTxtView = findViewById(R.id.totvSelectedDate);
+
+        //toDate = findViewById(R.id.toDate);
+        //toTxtView = findViewById(R.id.totvSelectedDate);
 
         back = findViewById(R.id.zuruck);
         order = findViewById(R.id.bestellen);
+
+        //implementing spinner of customer
+        spinner = findViewById(R.id.spinner);
+        ArrayAdapter<String>adapter = new ArrayAdapter<String>(Menuplan.this, android.R.layout.simple_spinner_item, items);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+
+
 
         //Calender for the first Button to select "Von"
         fromDate.setOnClickListener(new View.OnClickListener() {
@@ -60,7 +71,7 @@ public class Menuplan extends AppCompatActivity {
 
         });
 
-        //Calender for the Second Button to select "Bis"
+       /* //Calender for the Second Button to select "Bis"
         toDate.setOnClickListener(new View.OnClickListener() {
             Calendar calendar = Calendar.getInstance();
             int year = calendar.get(Calendar.YEAR);
@@ -79,7 +90,7 @@ public class Menuplan extends AppCompatActivity {
                 datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis());
                 datePickerDialog.show();
             }
-        });
+        }); */
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
