@@ -28,13 +28,20 @@
             android:layout_centerHorizontal="true"
             />
 
+        <Button
+            android:id="@+id/logVisible"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="170dp"
+            android:text="Logout" />
+
         <ImageButton
             android:id="@+id/logoutButton"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:background="@drawable/threedotslogout"
             android:layout_marginTop="2dp"
-            android:layout_marginLeft="340dp"
+            android:layout_marginLeft="320dp"
             />
     </RelativeLayout>
 
