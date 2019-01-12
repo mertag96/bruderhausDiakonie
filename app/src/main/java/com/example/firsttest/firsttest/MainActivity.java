@@ -38,13 +38,16 @@ public class MainActivity extends AppCompatActivity {
             butAnmelden.setOnClickListener(new OnClickListener(){
                 @Override
                 public void onClick(View v){
+
                     permission = 1;
                     //TODO: Get information from database about user and check if valid credentials entered & get permission and userID
 
                     //checking that username and password fields are filled before the redirecting can work
                     if(username.getText().toString().trim().equals("") || password.getText().toString().trim().equals("")) {
 
-                       Toast.makeText(getApplicationContext(), "Bitte Benutzername und Passwort eingeben", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Bitte Benutzername und Passwort eingeben", Toast.LENGTH_SHORT).show();
+
+
                     }else{
                         //Loading Panel wird hier erst angezeigt, bis es zur nächsten Activity übergegangen wird
                         if(permission == 1){
@@ -58,10 +61,7 @@ public class MainActivity extends AppCompatActivity {
                             //go to menuplan
                             //add permission as extras to intent
                         }
-                }
+                    }
             }});
-
-
-
     }
 }

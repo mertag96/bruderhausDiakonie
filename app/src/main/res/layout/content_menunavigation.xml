@@ -7,6 +7,10 @@
     android:orientation="vertical"
     android:background="@drawable/pop_bg"
     android:weightSum="10"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
     tools:context=".Menunavigation">
 
     <RelativeLayout
@@ -20,8 +24,8 @@
             android:textSize="25dp"
             android:textColor="#000000"
             android:textStyle="bold"
-            android:text="@string/menuplan_header"
-
+            android:text="@string/menunavigation_header"
+            android:layout_centerHorizontal="true"
             />
 
         <ImageButton
@@ -43,6 +47,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:padding="14dp"
+        android:layout_marginTop="20dp"
         >
         <!-- Row 1 -->
         <!-- Column 1 -->
