@@ -14,7 +14,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private Intent goToMenuNavi;
-    private Button butAnmelden;
+     Button butAnmelden, test;
     private TextView username, password;
     private ProgressBar loading;
     private int permission, userID;
@@ -25,13 +25,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //loading panel zuerst hier auf unsichtbar machen BUG: wenn man von der zweiten activity wieder mit zurück button zurück geht, dann lädt der panel permanent
+        test = findViewById(R.id.testButto);
+        test.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, Main_Activity.class));
+            }
+        });
 
 
         butAnmelden= findViewById(R.id.buttonAnmelden2);
         username= findViewById((R.id.inputUsername));
         password= findViewById((R.id.inputPassword));
         loading= findViewById(R.id.loadingPanel);
+
+        //loading panel zuerst hier auf unsichtbar machen BUG: wenn man von der zweiten activity wieder mit zurück button zurück geht, dann lädt der panel permanent
+
 
         loading.setVisibility(View.GONE);
             //Navigating to menunavigation page after listen on anmelden button

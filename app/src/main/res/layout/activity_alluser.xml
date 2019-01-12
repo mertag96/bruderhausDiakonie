@@ -50,7 +50,20 @@
             />
     </LinearLayout>
 
+    <RelativeLayout
+        android:id="@+id/relativeLayoutMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="0dp">
 
+
+    </RelativeLayout>
+
+<!--
     <HorizontalScrollView
         android:id="@+id/horizontalscrollView"
         android:layout_width="match_parent"
@@ -72,7 +85,7 @@
 
 
     </HorizontalScrollView >
-
+ -->
 
     <LinearLayout
         android:id="@+id/LinearLayout02"

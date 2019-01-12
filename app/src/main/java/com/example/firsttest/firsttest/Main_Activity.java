@@ -1,39 +1,19 @@
 package com.example.firsttest.firsttest;
 
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.Point;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Display;
-import android.view.Gravity;
-import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.view.Gravity;
+import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.util.ArrayList;
-
-import de.codecrafters.tableview.TableView;
-import de.codecrafters.tableview.listeners.TableDataClickListener;
-import de.codecrafters.tableview.toolkit.SimpleTableDataAdapter;
-import de.codecrafters.tableview.toolkit.SimpleTableHeaderAdapter;
-
-public class alluser extends AppCompatActivity implements HorizontalScroll.ScrollViewListener, VerticalScroll.ScrollViewListener {
-
-   private String [] tableHeader={"ID", "Benutzername", "Vorname", "Nachname", "BerechtigungID", "Telefon"};
-   private String [][] tableContent;
-   private Button goback, newUser;
-   /* private SearchView searchview;
-   private CharSequence query; */
-
-
+public class Main_Activity extends AppCompatActivity implements HorizontalScroll.ScrollViewListener, VerticalScroll.ScrollViewListener {
 
     private static int SCREEN_HEIGHT;
     private static int SCREEN_WIDTH;
@@ -68,13 +48,10 @@ public class alluser extends AppCompatActivity implements HorizontalScroll.Scrol
     */
     int tableRowCountC= 0;
 
-   //ToDo Beim horizontal scrollen, ist es mit der view implementiert aber die Spaltenzeilen an sich passen sich noch nicht ganz an und es kürz auptmatisch mit ... ab (Bug)
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_alluser);
-
+        setContentView(R.layout.activity_main2);
         /*
             Mandatory Content
          */
@@ -96,7 +73,7 @@ public class alluser extends AppCompatActivity implements HorizontalScroll.Scrol
             createCompleteRow();
         */
         for(int i=0; i<1; i++){
-            // addColumnsToTableB("Head" + i, i);
+           // addColumnsToTableB("Head" + i, i);
             addColumnsToTableB("ID", 0);
             addColumnsToTableB("Vorname", 1);
             addColumnsToTableB("Nachname", 2);
@@ -110,14 +87,6 @@ public class alluser extends AppCompatActivity implements HorizontalScroll.Scrol
             addRowToTableC(""+ i);
             for(int j=0; j<tableColumnCountB; j++){
                 addColumnToTableAtD(i, "Dummy");
-
-                tableRow.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Toast.makeText(alluser.this, "Test", Toast.LENGTH_SHORT).show();
-                        //Implement stuff!!!!!
-                    }
-                });
             }
         }
     }
@@ -210,7 +179,7 @@ public class alluser extends AppCompatActivity implements HorizontalScroll.Scrol
 
         TableLayout.LayoutParams layoutParamsTableLayoutA= new TableLayout.LayoutParams(SCREEN_WIDTH/5, SCREEN_HEIGHT/5);
         tableLayoutA.setLayoutParams(layoutParamsTableLayoutA);
-        //  tableLayoutA.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+      //  tableLayoutA.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
         this.relativeLayoutA.addView(tableLayoutA);
 
         TableLayout.LayoutParams layoutParamsTableLayoutB= new TableLayout.LayoutParams(SCREEN_WIDTH -(SCREEN_WIDTH/5), SCREEN_HEIGHT/5);
@@ -325,15 +294,6 @@ public class alluser extends AppCompatActivity implements HorizontalScroll.Scrol
         tableRowAdd.addView(tableRow);
     }
 
-    /*
-    tableRow.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Toast.makeText(alluser.this, "Test", Toast.LENGTH_SHORT).show();
-            System.out.println("Girdi");
-        }
-    }); */
-
     private void createCompleteColumn(String value){
         int i=0;
         int j=tableRowCountC-1;
@@ -342,126 +302,15 @@ public class alluser extends AppCompatActivity implements HorizontalScroll.Scrol
         }
     }
 
-    private void createCompleteRow(String value) {
+    private void createCompleteRow(String value){
         initializeRowForTableD(0);
-        int i = 0;
-        int j = tableColumnCountB - 1;
-        int pos = tableRowCountC - 1;
-        for (int k = i; k <= j; k++) {
+        int i=0;
+        int j=tableColumnCountB-1;
+        int pos= tableRowCountC-1;
+        for(int k=i; k<=j; k++){
             addColumnToTableAtD(pos, value);
         }
-
-
-
-
-
-      /*  final TableView<String[]> tb = (TableView<String[]>) findViewById(R.id.tableView);
-        tb.setColumnCount(tableHeader.length);
-        tb.setHeaderBackgroundColor(Color.parseColor("#187ED1"));
-*/
-        //Insert data
-        // fillData();
-/*
-        //Adapter
-        tb.setHeaderAdapter(new SimpleTableHeaderAdapter(this, tableHeader));
-        tb.setDataAdapter(new SimpleTableDataAdapter(this, tableContent));
-
-        tb.addDataClickListener(new TableDataClickListener<String[]>() {
-            @Override
-            public void onDataClicked(int rowIndex, String[] clickedData) {
-                Toast.makeText(alluser.this, ((String[])clickedData)[1], Toast.LENGTH_SHORT).show();
-            }
-        }); */
-
-        goback = findViewById(R.id.zuruck);
-        newUser = findViewById(R.id.neuerBenutzer);
-
-
-        goback.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(alluser.this, Menunavigation.class));
-            }
-
-        });
-
-        newUser.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(alluser.this, RegisterActivity.class));
-            }
-        });
     }
 
-        //binding the searchview into tableView
-    /*    searchview = findViewById(R.id.searchView);
-        query = searchview.getQuery(); // gets the query string currently in the text field
-
-        //perform set on query text listener event
-        searchview.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                //do something on text submit
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                //do something when text changes
-                return false;
-            }
-        });
-        */
-    }
-
-    /*
-    private void fillData(){
-        AllUserTableTop usertable = new AllUserTableTop();
-        ArrayList<AllUserTableTop> userlist = new ArrayList<>();
-
-        //ToDo: getUsertable from database and insert it here dynamically instead static
-
-        usertable.setId("1");
-        usertable.setUsername("Dummy");
-        usertable.setFirstname("Firstname");
-        usertable.setLastname("Lastname");
-        usertable.setPermissionID("2");
-        usertable.setPhone("07432987632434324234324234");
-        userlist.add(usertable);
-
-        usertable.setId("1");
-        usertable.setUsername("test2");
-        usertable.setPermissionID("2");
-        usertable.setPhone("074329876");
-        userlist.add(usertable);
-        usertable.setId("1");
-
-        usertable.setUsername("test3");
-        usertable.setPermissionID("2");
-        usertable.setPhone("074329876");
-        userlist.add(usertable);
-
-        usertable.setId("1");
-        usertable.setUsername("Dummy");
-        usertable.setPermissionID("2");
-        usertable.setPhone("074329876");
-        userlist.add(usertable);
-
-
-        tableContent = new String[userlist.size()][6];
-
-        for(int i=0; i<userlist.size(); i++){
-            AllUserTableTop a=userlist.get(i);
-
-            tableContent[i][0] = a.getId();
-            tableContent[i][1] = a.getUsername();
-            tableContent[i][2] = a.getFirstname();
-            tableContent[i][3] = a.getLastname();
-            tableContent[i][4] = a.getPermissionID();
-            tableContent[i][5] = a.getPhone();
-
-        } */
-
-
-
+}
 
