@@ -33,13 +33,6 @@
         <activity android:name=".Menuplan" />
         <activity android:name=".AllOrders" />
         <activity android:name=".searchCustomerPopup"></activity>
-        <activity android:name=".Main_Activity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
     </application>
 
 </manifest>

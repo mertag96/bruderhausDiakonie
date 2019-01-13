@@ -14,7 +14,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private Intent goToMenuNavi;
-     Button butAnmelden, test;
+     Button butAnmelden;
     private TextView username, password;
     private ProgressBar loading;
     private int permission, userID;
@@ -24,15 +24,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        test = findViewById(R.id.testButto);
-        test.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, Main_Activity.class));
-            }
-        });
-
 
         butAnmelden= findViewById(R.id.buttonAnmelden2);
         username= findViewById((R.id.inputUsername));
