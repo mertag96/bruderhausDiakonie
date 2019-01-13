@@ -47,8 +47,10 @@
             android:clickable="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="35dp"
+            app:showAsAction="always"
             />
     </LinearLayout>
+
 
     <RelativeLayout
         android:id="@+id/relativeLayoutMain"

@@ -14,7 +14,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private Intent goToMenuNavi;
-     Button butAnmelden;
+     Button butAnmelden, test;
     private TextView username, password;
     private ProgressBar loading;
     private int permission, userID;
@@ -28,12 +28,17 @@ public class MainActivity extends AppCompatActivity {
         butAnmelden= findViewById(R.id.buttonAnmelden2);
         username= findViewById((R.id.inputUsername));
         password= findViewById((R.id.inputPassword));
-        loading= findViewById(R.id.loadingPanel);
+        test = findViewById(R.id.test);
 
-        //loading panel zuerst hier auf unsichtbar machen BUG: wenn man von der zweiten activity wieder mit zurück button zurück geht, dann lädt der panel permanent
+        test.setOnClickListener(new OnClickListener(){
+            @Override
+            public void onClick(View v){
+                startActivity(new Intent(MainActivity.this, Menuplan.class));
+            }
+        });
 
 
-        loading.setVisibility(View.GONE);
+
             //Navigating to menunavigation page after listen on anmelden button
             butAnmelden.setOnClickListener(new OnClickListener(){
                 @Override
@@ -54,9 +59,9 @@ public class MainActivity extends AppCompatActivity {
                             goToMenuNavi = new Intent(MainActivity.this, Menunavigation.class);
                             goToMenuNavi.putExtra("permission",permission);
                            // goToMenuNavi.putExtra("userID",userID);
-                            loading.setVisibility(View.VISIBLE);
+                          //  loading.setVisibility(View.VISIBLE);
                             startActivity(goToMenuNavi);
-                            loading.setVisibility(View.INVISIBLE);
+                          //  loading.setVisibility(View.INVISIBLE);
                         }else{
                             //go to menuplan
                             //add permission as extras to intent

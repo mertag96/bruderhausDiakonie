@@ -8,17 +8,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Display;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.RelativeLayout;
+import android.widget.SearchView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.zip.Inflater;
 
 import de.codecrafters.tableview.TableView;
 import de.codecrafters.tableview.listeners.TableDataClickListener;
@@ -27,11 +33,12 @@ import de.codecrafters.tableview.toolkit.SimpleTableHeaderAdapter;
 
 public class alluser extends AppCompatActivity implements HorizontalScroll.ScrollViewListener, VerticalScroll.ScrollViewListener {
 
-   private String [] tableHeader={"ID", "Benutzername", "Vorname", "Nachname", "BerechtigungID", "Telefon"};
-   private String [][] tableContent;
+  // private String [] tableHeader={"ID", "Benutzername", "Vorname", "Nachname", "BerechtigungID", "Telefon"};
+  // private String [][] tableContent;
    private Button goback, newUser;
-   /* private SearchView searchview;
-   private CharSequence query; */
+   private SearchView searchview;
+
+
 
 
 
@@ -74,6 +81,14 @@ public class alluser extends AppCompatActivity implements HorizontalScroll.Scrol
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alluser);
+
+        //ToDo= SearchView bundle
+        /* Implementing the SearchView: Also ich dachte dass wir es vielleicht so machen: Dass die daten die sich in der datenbank befinden,
+        also von user, dass wir diese daten herholen und alles in ein liste einspeichern. Diese SeachView soll nicht nach allen angeben suchen können,
+        für den einstieg soll er z.b seine Treffer nur auf nachnamen suchen. Das wäre di beste eingrenzung der gefundenen treffer.
+        also werden die nachnamen von datenbank in eine liste gespeichert. die Searchview sucht in der Liste dann die treffer
+         */
+
 
         /*
             Mandatory Content
@@ -118,8 +133,13 @@ public class alluser extends AppCompatActivity implements HorizontalScroll.Scrol
                         //Implement stuff!!!!!
                     }
                 });
+
+
+
             }
         }
+
+
     }
 
     private void getScreenDimension(){
