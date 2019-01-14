@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Intent goToMenuNavi;
+    private Intent goToMenuNavi, goToAllOrders;
      Button butAnmelden, test;
     private TextView username, password;
     private ProgressBar loading;
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         test.setOnClickListener(new OnClickListener(){
             @Override
             public void onClick(View v){
-                startActivity(new Intent(MainActivity.this, Menuplan.class));
+                startActivity(new Intent(MainActivity.this, AllOrders.class));
             }
         });
 
@@ -58,6 +58,13 @@ public class MainActivity extends AppCompatActivity {
                         if(permission == 1){
                             goToMenuNavi = new Intent(MainActivity.this, Menunavigation.class);
                             goToMenuNavi.putExtra("permission",permission);
+
+                            //username mitgeben an AllOrders kp aber ob das klappt
+                            String putusername = username.getText().toString();
+
+                            goToAllOrders = new Intent(MainActivity.this, AllOrders.class);
+                            goToAllOrders.putExtra("Username", putusername);
+
                            // goToMenuNavi.putExtra("userID",userID);
                           //  loading.setVisibility(View.VISIBLE);
                             startActivity(goToMenuNavi);

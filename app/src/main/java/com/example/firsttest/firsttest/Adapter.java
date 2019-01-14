@@ -72,6 +72,17 @@ public class Adapter extends PagerAdapter {
         np3.setWrapSelectorWheel(true);
 
 
+        /*
+  numberPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                String text = "Changed from " + oldVal + " to " + newVal;
+                Toast.makeText(MainActivity.this, text, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+*/
         title.setText(models.get(position).getTitle());
         inhaltVorspeise1.setText(models.get(position).getInhaltVorspeise1());
         inhaltMittagessen.setText(models.get(position).getInhaltMittagessen());

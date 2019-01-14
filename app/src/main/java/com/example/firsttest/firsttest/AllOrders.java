@@ -7,9 +7,12 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,14 +20,27 @@ import java.util.Calendar;
 
 public class AllOrders extends AppCompatActivity {
 
+
     private Button fromDate, toDate, edit, back;
     private TextView fromTxtView, toTxtView;
     final Context context = this;
+    private Spinner spinner;
+    private static final String[] items = {"Bitte Kunde auswählen"};
+
+    //private static final String TAG = "AllOrders";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_orders);
+        // Log.d(TAG, "onCreate: Started.");
+
+
+        //implementing spinner of customer
+        spinner = findViewById(R.id.spinner);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(AllOrders.this, android.R.layout.simple_spinner_item, items);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
 
         fromDate = findViewById(R.id.fromDate);
         fromTxtView = findViewById(R.id.fromtvSelectedDate);
@@ -95,8 +111,8 @@ public class AllOrders extends AppCompatActivity {
                 alertDialogBuilder.setTitle("Hinweis");
 
                 //set Dialog Message
-                alertDialogBuilder.setMessage("Wie möchten Sie vorgehen?").setCancelable(false)
-                        .setPositiveButton("Löschen", new DialogInterface.OnClickListener() {
+                alertDialogBuilder.setMessage("Löschen?").setCancelable(false)
+                        .setPositiveButton("Ja", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 //if this button is clicked, close currect activity
@@ -122,3 +138,4 @@ public class AllOrders extends AppCompatActivity {
         });
     }
 }
+

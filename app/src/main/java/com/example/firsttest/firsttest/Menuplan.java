@@ -50,13 +50,13 @@ public class Menuplan extends AppCompatActivity {
 
         //Menuplan
         models = new ArrayList<>();
-        models.add(new Model("1",  " Selleriecremesuppe",
+        models.add(new Model("Menüplan 1",  " Selleriecremesuppe",
                 " Putenschnitzel \n Bratensoße \n Feine Nudeln \n Gemischter Salat", " Latte- Machhiatopudding"));
-        models.add(new Model("2",  " Selleriecremesuppe",
+        models.add(new Model("Menüplan 2",  " Selleriecremesuppe",
                 " Bunte Gemüßeplatte \n Soße Hollondaise \n Eieromlette \n Salzkartoffel", " Latte- Machhiatopudding"));
-        models.add(new Model("3",  " Selleriecremesuppe",
+        models.add(new Model("Menüplan 3",  " Selleriecremesuppe",
                 " Nudel-Gemüseauflauf \n mit Schinken \n Kräutersoße \n Gemischter Salat", " Latte- Machhiatopudding"));
-        models.add(new Model("4",  " Selleriecremesuppe",
+        models.add(new Model("Menüplan 4",  " Selleriecremesuppe",
                 " Nudel-Gemüseauflauf \n mit Schinken \n Kräutersoße \n Gemischter Salat", " Latte- Machhiatopudding"));
 
 
@@ -118,14 +118,6 @@ public class Menuplan extends AppCompatActivity {
         ArrayAdapter<String>adapter = new ArrayAdapter<String>(Menuplan.this, android.R.layout.simple_spinner_item, items);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
-
-
-
-        //Implement Menuplan via Swipe Views using ViewPager
-
-
-
-
 
 
         //Calender for the first Button to select "Von"
