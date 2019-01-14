@@ -22,6 +22,7 @@ public class AllOrders extends AppCompatActivity {
 
 
     private Button fromDate, toDate, edit, back;
+
     private TextView fromTxtView, toTxtView;
     final Context context = this;
     private Spinner spinner;
