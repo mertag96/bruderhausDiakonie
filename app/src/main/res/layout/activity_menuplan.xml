@@ -92,6 +92,45 @@
         android:layout_height="wrap_content">
 
 
+
     </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/LinearLayout02"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true">
+        <Button
+            android:id="@+id/zuruck"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+
+            android:text="Zurück">
+        </Button>
+        <Button
+            android:id="@+id/bestellen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Bestellen">
+        </Button>
+    </LinearLayout>
+
+    <Spinner
+        android:id="@+id/spinnerOfferType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"></Spinner>
+
+
 
 </RelativeLayout>

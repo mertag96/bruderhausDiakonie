@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TableLayout;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -21,6 +20,8 @@ public class alluser extends AppCompatActivity {
    private String [] tableHeader={"ID", "Benutzername", "BerechtigungID", "Telefon"};
    private String [][] tableContent;
    private Button goback, newUser;
+   /* private SearchView searchview;
+   private CharSequence query; */
 
    //ToDo Beim horizontal scrollen, ist es mit der view implementiert aber die Spaltenzeilen an sich passen sich noch nicht ganz an und es kürz auptmatisch mit ... ab (Bug)
 
@@ -66,6 +67,26 @@ public class alluser extends AppCompatActivity {
             }
         });
 
+
+        //binding the searchview into tableView
+    /*    searchview = findViewById(R.id.searchView);
+        query = searchview.getQuery(); // gets the query string currently in the text field
+
+        //perform set on query text listener event
+        searchview.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                //do something on text submit
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                //do something when text changes
+                return false;
+            }
+        });
+        */
     }
     private void fillData(){
         AllUserTableTop usertable = new AllUserTableTop();
@@ -76,7 +97,7 @@ public class alluser extends AppCompatActivity {
         usertable.setId("1");
         usertable.setUsername("Dummy");
         usertable.setPermissionID("2");
-        usertable.setPhone("074329876");
+        usertable.setPhone("07432987632434324234324234");
         userlist.add(usertable);
 
         usertable.setId("1");
