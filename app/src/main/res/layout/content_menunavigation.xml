@@ -7,22 +7,42 @@
     android:orientation="vertical"
     android:background="@drawable/pop_bg"
     android:weightSum="10"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
     tools:context=".Menunavigation">
 
-    <!-- To Do: Icons anpassen und hintergrund ändern -->
-
     <RelativeLayout
-        android:layout_weight="2"
-        android:layout_width="match_parent"
-        android:layout_height="0dp">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        >
         <TextView
-            android:id="@+id/textGrid"
-            android:text="MENÜ"
-            android:textSize="34sp"
-            android:layout_centerInParent="true"
-            android:textColor="@android:color/black"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:textSize="25dp"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:text="@string/menunavigation_header"
+            android:layout_centerHorizontal="true"
+            />
+
+        <Button
+            android:id="@+id/logVisible"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="170dp"
+            android:text="Logout" />
+
+        <ImageButton
+            android:id="@+id/logoutButton"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/threedotslogout"
+            android:layout_marginTop="2dp"
+            android:layout_marginLeft="320dp"
+            />
     </RelativeLayout>
 
     <GridLayout
@@ -34,6 +54,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:padding="14dp"
+        android:layout_marginTop="20dp"
         >
         <!-- Row 1 -->
         <!-- Column 1 -->
@@ -196,5 +217,11 @@
         </android.support.v7.widget.CardView>
 
     </GridLayout>
-    
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" />
+
 </LinearLayout>

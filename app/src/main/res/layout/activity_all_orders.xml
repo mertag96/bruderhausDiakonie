@@ -10,14 +10,27 @@
     android:paddingTop="16dp"
     tools:context=".AllOrders">
 
-    <TextView
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Alle Bestellungen"
-        android:textSize="25dp"
-        android:textStyle="bold"
-        android:textColor="#000000"
-        />
+        >
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:textSize="25dp"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:text="@string/allOrders_header"
+            />
+        <ImageButton
+            android:id="@+id/logoutButton"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/threedotslogout"
+            android:layout_marginTop="2dp"
+            android:layout_marginLeft="320dp"
+            />
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -79,19 +92,34 @@
             android:textStyle="bold"
             />
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="160dp"
+            />
+    </LinearLayout>
 
     <View
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="190dp"
         android:layout_width="wrap_content"
         android:layout_height="1dip"
         android:background="#000000" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_marginTop="200dp"
+        android:id="@+id/listView">
+
+    </ListView>
 
 
-    </LinearLayout>
+
 
     <LinearLayout
         android:id="@+id/LinearLayout02"
@@ -113,5 +141,16 @@
             android:text="Bearbeiten">
         </Button>
     </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="50dp"
+        android:clickable="true"
+        app:srcCompat="@android:drawable/ic_menu_add" />
 
 </RelativeLayout>
