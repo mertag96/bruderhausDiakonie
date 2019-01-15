@@ -82,6 +82,24 @@ public class alluser extends AppCompatActivity implements HorizontalScroll.Scrol
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alluser);
 
+        goback = findViewById(R.id.zuruck);
+        newUser = findViewById(R.id.neuerBenutzer);
+
+        goback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(alluser.this, Menunavigation.class));
+            }
+        });
+
+        newUser.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(alluser.this, RegisterActivity.class));
+            }
+        });
+
+
         //ToDo= SearchView bundle
         /* Implementing the SearchView: Also ich dachte dass wir es vielleicht so machen: Dass die daten die sich in der datenbank befinden,
         also von user, dass wir diese daten herholen und alles in ein liste einspeichern. Diese SeachView soll nicht nach allen angeben suchen können,

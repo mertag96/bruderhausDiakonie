@@ -110,13 +110,23 @@
         android:layout_height="1dip"
         android:background="#000000" />
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="240dp"
-        android:layout_marginTop="200dp"
-        android:id="@+id/listView">
 
-    </ListView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="340dp"
+        android:layout_marginTop="200dp"
+        >
+        <TableLayout
+            android:id="@+id/tableInvoices"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="0dp"
+            android:stretchColumns="*"
+            >
+
+        </TableLayout>
+    </ScrollView>
 
 
 
@@ -141,16 +151,5 @@
             android:text="Bearbeiten">
         </Button>
     </LinearLayout>
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="50dp"
-        android:clickable="true"
-        app:srcCompat="@android:drawable/ic_menu_add" />
 
 </RelativeLayout>
