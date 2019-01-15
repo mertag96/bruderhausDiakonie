@@ -23,14 +23,6 @@
             android:textStyle="bold"
             android:text="@string/allUser_header"
             />
-        <ImageButton
-            android:id="@+id/logoutButton"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:background="@drawable/threedotslogout"
-            android:layout_marginTop="2dp"
-            android:layout_marginLeft="320dp"
-            />
     </RelativeLayout>
 
     <LinearLayout
@@ -62,32 +54,7 @@
         android:layout_marginEnd="14dp"
         android:layout_marginBottom="0dp">
 
-
     </RelativeLayout>
-
-<!--
-    <HorizontalScrollView
-        android:id="@+id/horizontalscrollView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:layout_marginTop="100dp"
-        >
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <de.codecrafters.tableview.TableView
-                android:id="@+id/tableView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                >
-            </de.codecrafters.tableview.TableView>
-        </LinearLayout>
-
-
-    </HorizontalScrollView >
- -->
 
     <LinearLayout
         android:id="@+id/LinearLayout02"
