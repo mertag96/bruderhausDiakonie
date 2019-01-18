@@ -56,6 +56,8 @@ public class alluser extends AppCompatActivity implements HorizontalScroll.Scrol
     TableLayout tableLayoutC;
     TableLayout tableLayoutD;
 
+
+
     TableRow tableRow;
     TableRow tableRowB;
 
@@ -106,8 +108,25 @@ public class alluser extends AppCompatActivity implements HorizontalScroll.Scrol
         für den einstieg soll er z.b seine Treffer nur auf nachnamen suchen. Das wäre di beste eingrenzung der gefundenen treffer.
         also werden die nachnamen von datenbank in eine liste gespeichert. die Searchview sucht in der Liste dann die treffer
          */
+/*
+        searchview.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                if(tableLayoutD.contains(query)){
 
+                }else{
 
+                }
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+
+*/
         /*
             Mandatory Content
          */
@@ -141,19 +160,19 @@ public class alluser extends AppCompatActivity implements HorizontalScroll.Scrol
         for(int i=0; i<10; i++){
             initializeRowForTableD(i);
             addRowToTableC(""+ i);
-            for(int j=0; j<tableColumnCountB; j++){
-                addColumnToTableAtD(i, "Dummy");
+            for(int j=0; j<tableColumnCountB; j++){ addColumnToTableAtD(i, "Dummy ID: " + "["+ i + "]" + "["+ j + "]");
+
 
                 tableRow.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Toast.makeText(alluser.this, "Test", Toast.LENGTH_SHORT).show();
+                        //System.out.println("Zeilenr:" + tr.getId() + "Kundenname: " + tv3.getText());
+
+                        System.out.println("Zeilennr:" + tableRow.getId());
                         //Implement stuff!!!!!
                     }
                 });
-
-
-
             }
         }
 
@@ -339,6 +358,7 @@ public class alluser extends AppCompatActivity implements HorizontalScroll.Scrol
         tableRowCountC++;
     }
 
+    //hier??
     private synchronized void initializeRowForTableD(int pos){
         TableRow tableRowB= new TableRow(getApplicationContext());
         TableRow.LayoutParams layoutParamsTableRow= new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, SCREEN_HEIGHT/10);
@@ -363,14 +383,6 @@ public class alluser extends AppCompatActivity implements HorizontalScroll.Scrol
         tableRowAdd.addView(tableRow);
     }
 
-    /*
-    tableRow.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Toast.makeText(alluser.this, "Test", Toast.LENGTH_SHORT).show();
-            System.out.println("Girdi");
-        }
-    }); */
 
     private void createCompleteColumn(String value){
         int i=0;

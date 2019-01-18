@@ -43,10 +43,9 @@
         android:rowCount="2"
         android:alignmentMode="alignMargins"
         android:columnOrderPreserved="false"
-        android:layout_weight="8"
+        android:layout_weight="10"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:padding="14dp"
         android:layout_marginTop="20dp"
         >
         <!-- Row 1 -->
@@ -68,25 +67,27 @@
                     android:layout_margin="16dp"
                     android:orientation="vertical"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    >
 
                     <ImageView
                         android:id="@+id/alleUser"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:src="@drawable/allebenutzer" />
-                    
-                        <TextView
-                            android:text="Alle Benutzer"
-                            android:textAlignment="center"
-                            android:textColor="@android:color/black"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                        android:src="@drawable/allebenutzer"
+                        android:layout_marginTop="5dp"/>
 
                 </LinearLayout>
+            <TextView
+                android:text="Alle Benutzer"
+                android:layout_gravity="center_horizontal"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
         </android.support.v7.widget.CardView>
 
         <!-- Column 2 -->
@@ -117,19 +118,21 @@
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/loginavatar"
                     android:clickable="true"
-
+                    android:layout_marginTop="5dp"
                     />
-
+            </LinearLayout>
                 <TextView
                     android:text="Neuer Benutzer"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:textStyle="bold"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    />
 
-            </LinearLayout>
+
         </android.support.v7.widget.CardView>
 
         <!-- Row 2 -->
@@ -157,18 +160,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/menuplan" />
-
-                <TextView
-                    android:text="Menüplan"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
+                    android:src="@drawable/menuplan"
+                    android:layout_marginTop="5dp"/>
             </LinearLayout>
+            <TextView
+                android:text="Menüplan"
+                android:layout_gravity="center_horizontal"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
         </android.support.v7.widget.CardView>
 
         <!-- Column 2 -->
@@ -195,18 +198,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/allebestellungen" />
-
-                <TextView
-                    android:text="Alle Bestellungen"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:src="@drawable/allebestellungen"
+                    android:layout_marginTop="5dp"/>
 
             </LinearLayout>
+            <TextView
+                android:text="Alle Bestellungen"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"/>
         </android.support.v7.widget.CardView>
 
     </GridLayout>
