@@ -18,15 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         >
-        <TextView
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:textSize="25dp"
-            android:textColor="#000000"
-            android:textStyle="bold"
-            android:text="@string/menunavigation_header"
-            android:layout_centerHorizontal="true"
-            />
+
 
         <Button
             android:id="@+id/logVisible"
@@ -40,7 +32,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:background="@drawable/threedotslogout"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="5dp"
             android:layout_marginLeft="320dp"
             />
     </RelativeLayout>
@@ -87,11 +79,12 @@
 
                 </LinearLayout>
             <TextView
+                android:layout_marginTop="10dp"
                 android:text="Alle Benutzer"
                 android:layout_gravity="center_horizontal"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="16sp"
+                android:textSize="19sp"
                 android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -130,9 +123,10 @@
             </LinearLayout>
                 <TextView
                     android:text="Neuer Benutzer"
+                    android:layout_marginTop="10dp"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
-                    android:textSize="16sp"
+                    android:textSize="19sp"
                     android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -172,10 +166,11 @@
             </LinearLayout>
             <TextView
                 android:text="Menüplan"
+                android:layout_marginTop="10dp"
                 android:layout_gravity="center_horizontal"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="16sp"
+                android:textSize="19sp"
                 android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -213,7 +208,7 @@
                 android:text="Alle Bestellungen"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="16sp"
+                android:textSize="19sp"
                 android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -14,7 +14,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private Intent goToMenuNavi, goToAllOrders;
-     Button butAnmelden, test;
+     Button butAnmelden;
     private TextView username, password;
     private ProgressBar loading;
     private int permission, userID;
@@ -28,16 +28,6 @@ public class MainActivity extends AppCompatActivity {
         butAnmelden= findViewById(R.id.buttonAnmelden2);
         username= findViewById((R.id.inputUsername));
         password= findViewById((R.id.inputPassword));
-        test = findViewById(R.id.test);
-
-        test.setOnClickListener(new OnClickListener(){
-            @Override
-            public void onClick(View v){
-                startActivity(new Intent(MainActivity.this, alluser.class));
-            }
-        });
-
-
 
             //Navigating to menunavigation page after listen on anmelden button
             butAnmelden.setOnClickListener(new OnClickListener(){
@@ -49,10 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
                     //checking that username and password fields are filled before the redirecting can work
                     if(username.getText().toString().trim().equals("") || password.getText().toString().trim().equals("")) {
-
                         Toast.makeText(getApplicationContext(), "Bitte Benutzername und Passwort eingeben", Toast.LENGTH_SHORT).show();
-
-
                     }else{
                         //Loading Panel wird hier erst angezeigt, bis es zur nächsten Activity übergegangen wird
                         if(permission == 1){
