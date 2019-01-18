@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
     private int permission, userID;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,5 +83,4 @@ public class MainActivity extends AppCompatActivity {
                     }
             }});
     }
-
 }
