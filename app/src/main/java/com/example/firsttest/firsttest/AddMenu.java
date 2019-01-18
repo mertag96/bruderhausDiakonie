@@ -16,6 +16,7 @@ import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.EditText;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -27,6 +28,7 @@ public class AddMenu extends AppCompatActivity {
     private Spinner spinner;
     private TextView fromTxtView;
     private Context context = this;
+    private EditText edit;
     //private static final String [] items = {"Bitte Kunde auswählen"};
 
     ViewPager viewPager;
@@ -42,15 +44,15 @@ public class AddMenu extends AppCompatActivity {
 
         setContentView(R.layout.activity_add_menu);
 
-        //Menuplan cikaartttimmmmmmmmmmmmmmmmmm
+        //Menuplan cikaartttimmmmmmmmmmmm
         models = new ArrayList<>();
-        models.add(new Model("Menüplan 1",  "",
-                "", ""));
-        models.add(new Model("Menüplan 2",  "",
-                "", ""));
-        models.add(new Model("Menüplan 3",  "",
-                "", ""));
-        models.add(new Model("Menüplan 4",  "",
+        models.add(new Model("Menüplan 1",  "" + edit,
+                ""+ edit, ""+ edit));
+        models.add(new Model("Menüplan 2",  ""+ edit,
+                ""+ edit, ""+ edit));
+        models.add(new Model("Menüplan 3",  ""+ edit,
+                ""+ edit, ""+ edit));
+        models.add(new Model("Menüplan 4",  ""+ edit,
                 "", ""));
 
 
@@ -205,5 +207,6 @@ public class AddMenu extends AppCompatActivity {
 
             }
         });
+
     }
 }
