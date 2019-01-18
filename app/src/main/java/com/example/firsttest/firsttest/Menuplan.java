@@ -11,6 +11,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -24,18 +25,18 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
-public class Menuplan extends AppCompatActivity {
+public class Menuplan extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private Button fromDate, back, order;
     private Spinner spinner;
     private TextView fromTxtView;
     private Context context = this;
-    private static final String [] items = {"Bitte Kunde auswählen"};
+    //  private static final String firstItem = "Bitte Kunde auswählen";
 
     ViewPager viewPager;
     Adapter adapter;
     List<Model> models;
-    Integer [] colors = null;
+    Integer[] colors = null;
     ArgbEvaluator argbEvaluator = new ArgbEvaluator();
 
 
@@ -46,17 +47,15 @@ public class Menuplan extends AppCompatActivity {
         setContentView(R.layout.activity_menuplan);
 
 
-
-
         //Menuplan
         models = new ArrayList<>();
-        models.add(new Model("Menüplan 1",  " Selleriecremesuppe",
+        models.add(new Model("Menüplan 1", " Selleriecremesuppe",
                 " Putenschnitzel \n Bratensoße \n Feine Nudeln \n Gemischter Salat", " Latte- Machhiatopudding"));
-        models.add(new Model("Menüplan 2",  " Selleriecremesuppe",
+        models.add(new Model("Menüplan 2", " Selleriecremesuppe",
                 " Bunte Gemüßeplatte \n Soße Hollondaise \n Eieromlette \n Salzkartoffel", " Latte- Machhiatopudding"));
-        models.add(new Model("Menüplan 3",  " Selleriecremesuppe",
+        models.add(new Model("Menüplan 3", " Selleriecremesuppe",
                 " Nudel-Gemüseauflauf \n mit Schinken \n Kräutersoße \n Gemischter Salat", " Latte- Machhiatopudding"));
-        models.add(new Model("Menüplan 4",  " Selleriecremesuppe",
+        models.add(new Model("Menüplan 4", " Selleriecremesuppe",
                 " Nudel-Gemüseauflauf \n mit Schinken \n Kräutersoße \n Gemischter Salat", " Latte- Machhiatopudding"));
 
 
@@ -64,9 +63,9 @@ public class Menuplan extends AppCompatActivity {
 
         viewPager = findViewById(R.id.viewPager);
         viewPager.setAdapter(adapter);
-        viewPager.setPadding(130,0,130,0);
+        viewPager.setPadding(130, 0, 130, 0);
 
-        Integer [] colors_temp = {
+        Integer[] colors_temp = {
                 getResources().getColor(R.color.color1),
                 getResources().getColor(R.color.color2),
                 getResources().getColor(R.color.color3),
@@ -78,14 +77,14 @@ public class Menuplan extends AppCompatActivity {
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                if(position < (adapter.getCount()- 1)&& position <(colors.length -1)){
+                if (position < (adapter.getCount() - 1) && position < (colors.length - 1)) {
                     viewPager.setBackgroundColor(
                             (Integer) argbEvaluator.evaluate(
                                     positionOffset,
                                     colors[position],
                                     colors[position + 1]));
 
-                }else {
+                } else {
                     viewPager.setBackgroundColor(colors[colors.length - 1]);
                 }
             }
@@ -102,11 +101,6 @@ public class Menuplan extends AppCompatActivity {
         });
 
 
-
-
-
-
-
         fromDate = findViewById(R.id.fromDate);
         fromTxtView = findViewById(R.id.fromtvSelectedDate);
 
@@ -115,7 +109,13 @@ public class Menuplan extends AppCompatActivity {
 
         //implementing spinner of customer
         spinner = findViewById(R.id.spinner);
-        ArrayAdapter<String>adapter = new ArrayAdapter<String>(Menuplan.this, android.R.layout.simple_spinner_item, items);
+        spinner.setOnItemSelectedListener(this); //
+
+        List<String> categories = new ArrayList<String>();
+        categories.add("Bitte auswählen");
+        categories.add("Hier müssen die Usernamen dynamisch geladen werden");
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(Menuplan.this, android.R.layout.simple_spinner_item, categories);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
@@ -184,10 +184,22 @@ public class Menuplan extends AppCompatActivity {
                 alertDialog.show();
 
             }
-            });
+        });
 
 
+    }
 
-            } }
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String item = parent.getItemAtPosition(position).toString();
+        if (!(item.equals("Bitte auswählen"))) {
+            Toast.makeText(parent.getContext(), "Ausgewählt: " + item, Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void onNothingSelected(AdapterView<?> arg0) {
+        //To do autogenerated method stub
+    }
+}
 
 

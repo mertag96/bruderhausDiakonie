@@ -3,28 +3,23 @@ package com.example.firsttest.firsttest;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
 public class RegisterActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    private Spinner spinner1;
-    private static final String [] items = {"Diakonie Kunde", "Küchenmitarbeiter"};
+    private Spinner spinner;
     private Button register, back;
     final Context context = this;
 
@@ -34,24 +29,20 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         setContentView(R.layout.register);
 
         //spinner
-        spinner1 = findViewById(R.id.spinner1);
-        spinner1.setOnItemSelectedListener(this);
-        List <String> categories = new ArrayList<String>();
+        spinner = findViewById(R.id.spinner1);
+        spinner.setOnItemSelectedListener(this);
+        List<String> categories = new ArrayList<String>();
+        categories.add("Bitte auswählen");
         categories.add("Service");
         categories.add("Küche");
         categories.add("Kunde");
 
-        ArrayAdapter<String>dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner1.setAdapter(dataAdapter);
+        spinner.setAdapter(dataAdapter);
 
         register = findViewById(R.id.buttonRegistrieren2);
         back = findViewById(R.id.zuruck);
-
-        //adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-      //  spinner.setAdapter(adapter);
-      //  spinner.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
-
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,21 +51,15 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
             }
         });
 
-
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-
-                //set title
                 alertDialogBuilder.setTitle("Hinweis");
-
-                //set Dialog Message
                 alertDialogBuilder.setMessage("Möchten Sie die Daten endgültig speichern?").setCancelable(false)
                         .setPositiveButton("Ja", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                //if this button is clicked, close currect activity
                                 //ToDo: implementieren, dass die eingegebenen Daten dann tatsächlich gespeichert werden
                                 startActivity(new Intent(RegisterActivity.this, Menunavigation.class));
                                 Toast.makeText(getApplicationContext(), "Benutzer wurde erfolgreich registriert", Toast.LENGTH_SHORT).show();
@@ -82,27 +67,24 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
                         }).setNegativeButton("Nein", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        //if this button is clicked, just close the dialog box and do nothing
                         dialog.cancel();
                     }
                 });
-
-                //create alert dialog
                 AlertDialog alertDialog = alertDialogBuilder.create();
-
-                //show it
                 alertDialog.show();
-
             }
         });
     }
 
     @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id){
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String item = parent.getItemAtPosition(position).toString();
-        Toast.makeText(parent.getContext(), "Ausgewählt: " + item, Toast.LENGTH_LONG).show();
+        if (!(item.equals("Bitte auswählen"))) {
+            Toast.makeText(parent.getContext(), "Ausgewählt: " + item, Toast.LENGTH_LONG).show();
+        }
     }
-    public void onNothingSelected(AdapterView<?> arg0){
+
+    public void onNothingSelected(AdapterView<?> arg0) {
         //To do autogenerated method stub
     }
 }
