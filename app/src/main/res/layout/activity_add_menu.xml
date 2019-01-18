@@ -8,7 +8,7 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp"
-    tools:context=".Menuplan">
+    tools:context=".AddMenu">
 
 
     <RelativeLayout
@@ -21,7 +21,7 @@
             android:textSize="25dp"
             android:textColor="#000000"
             android:textStyle="bold"
-            android:text="@string/menuplan_header"
+            android:text="Menü hinzufügen"
             />
         <ImageButton
             android:id="@+id/logoutButton"
@@ -74,9 +74,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
             />
+
     </LinearLayout>
-
-
 
     <RelativeLayout
         android:id="@+id/relativeLayoutMain"
@@ -88,8 +87,9 @@
         android:layout_marginEnd="3dp"
         android:layout_marginBottom="45dp">
 
-    </RelativeLayout>
 
+
+    </RelativeLayout>
 
     <android.support.v4.view.ViewPager
         android:foregroundGravity="center"
@@ -120,14 +120,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
 
-            android:text="Menü Hinzfg.">
+            android:text="Abbrechen">
         </Button>
         <Button
             android:id="@+id/bestellen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Heutige Bestell.">
+            android:text="Speichern">
         </Button>
     </LinearLayout>
 

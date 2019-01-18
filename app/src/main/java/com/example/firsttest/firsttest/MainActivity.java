@@ -53,7 +53,11 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Bitte Benutzername und Passwort eingeben", Toast.LENGTH_SHORT).show();
 
 
-                    }else{
+                    }else if(username.getText().toString().trim().equals("k1")){
+                        startActivity(new Intent(MainActivity.this, MenuplanKitchen.class));
+
+                    }
+                    else{
                         //Loading Panel wird hier erst angezeigt, bis es zur nächsten Activity übergegangen wird
                         if(permission == 1){
                             goToMenuNavi = new Intent(MainActivity.this, Menunavigation.class);
@@ -69,7 +73,9 @@ public class MainActivity extends AppCompatActivity {
                           //  loading.setVisibility(View.VISIBLE);
                             startActivity(goToMenuNavi);
                           //  loading.setVisibility(View.INVISIBLE);
-                        }else{
+                        }
+                        else{
+
                             //go to menuplan
                             //add permission as extras to intent
                         }

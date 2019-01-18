@@ -48,29 +48,11 @@ public class Adapter extends PagerAdapter {
 
 
         TextView title, inhaltVorspeise1, inhaltMittagessen, inhaltNachspeise;
-        NumberPicker np1, np2, np3;
 
         title = view.findViewById(R.id.title);
         inhaltVorspeise1= view.findViewById(R.id.inhaltVorspeise1);
         inhaltMittagessen = view.findViewById(R.id.inhaltMittagessen);
         inhaltNachspeise = view.findViewById(R.id.inhaltNachspeise);
-
-        np1 = view.findViewById(R.id.numberpicker1);
-        np2 = view.findViewById(R.id.numberpicker2);
-        np3 = view.findViewById(R.id.numberpicker3);
-
-        np1.setMinValue(0);
-        np1.setMaxValue(5);
-        np1.setWrapSelectorWheel(true);
-
-        np2.setMinValue(0);
-        np2.setMaxValue(5);
-        np2.setWrapSelectorWheel(true);
-
-        np3.setMinValue(0);
-        np3.setMaxValue(5);
-        np3.setWrapSelectorWheel(true);
-
 
         /*
   numberPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {

@@ -30,10 +30,13 @@
         <activity
             android:name=".alluser"
             android:windowSoftInputMode="adjustNothing" />
-        <activity android:name=".Menuplan"
-            />
+        <activity android:name=".Menuplan" />
         <activity android:name=".AllOrders" />
-        <activity android:name=".searchCustomerPopup"></activity>
+        <activity android:name=".searchCustomerPopup" />
+        <activity android:name=".MenuplanKitchen" />
+        <activity android:name=".AddMenu" />
+        <activity android:name=".todayOrder" />
+        <activity android:name=".allOrdersKitchen"></activity>
     </application>
 
 </manifest>

@@ -11,6 +11,7 @@ public class Model {
     private String inhaltMittagessen;
     private String inhaltNachspeise;
    // private NumberPicker np1;
+    // EditText title, vorspeise, mittag, nachspeise;
 
 
     public Model(String title, String inhaltVorspeise1, String inhaltMittagessen, String inhaltNachspeise ) {

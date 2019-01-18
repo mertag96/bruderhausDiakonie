@@ -18,7 +18,7 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:textStyle="bold"
                 android:layout_centerHorizontal="true"
                 android:textSize="22dp"
@@ -26,20 +26,14 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
+                    android:layout_height="70dp"
                     android:layout_marginTop="50dp"
                     >
-                    <NumberPicker
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/numberpicker1"
-                        android:layout_weight="1"
-                        />
                     <TextView
                         android:id="@+id/inhaltVorspeise1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="19dp"
+                        android:textSize="15dp"
                         android:layout_weight="14"
                         android:layout_gravity="center"
                         />
@@ -53,17 +47,11 @@
                 android:layout_height="100dp"
                 android:layout_marginTop="160dp"
                 >
-                <NumberPicker
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/numberpicker2"
-                    android:layout_weight="1"
-                    />
                 <TextView
                     android:id="@+id/inhaltMittagessen"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="19dp"
+                    android:textSize="15dp"
                     android:layout_weight="14"
                     android:layout_gravity="center"
                     />
@@ -72,20 +60,14 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="70dp"
                 android:layout_marginTop="270dp"
                 >
-                <NumberPicker
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/numberpicker3"
-                    android:layout_weight="1"
-                    />
                 <TextView
                     android:id="@+id/inhaltNachspeise"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="19dp"
+                    android:textSize="15dp"
                     android:layout_weight="14"
                     android:layout_gravity="center"
                     />
