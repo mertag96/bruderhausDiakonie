@@ -102,11 +102,6 @@ public class Menuplan extends AppCompatActivity {
         });
 
 
-
-
-
-
-
         fromDate = findViewById(R.id.fromDate);
         fromTxtView = findViewById(R.id.fromtvSelectedDate);
 

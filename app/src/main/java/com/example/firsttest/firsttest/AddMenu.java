@@ -23,7 +23,7 @@ import java.util.List;
 
 public class AddMenu extends AppCompatActivity {
 
-    private Button fromDate, cancel, todayorder;
+    private Button fromDate, cancel, save;
     private Spinner spinner;
     private TextView fromTxtView;
     private Context context = this;
@@ -102,7 +102,7 @@ public class AddMenu extends AppCompatActivity {
         fromTxtView = findViewById(R.id.fromtvSelectedDate);
 
         cancel = findViewById(R.id.AddMenu);
-        todayorder = findViewById(R.id.bestellen);
+        save = findViewById(R.id.bestellen);
 
         //implementing spinner of customer
         spinner = findViewById(R.id.spinner);
@@ -170,10 +170,39 @@ public class AddMenu extends AppCompatActivity {
             }
         });
 
-        todayorder.setOnClickListener(new View.OnClickListener() {
+        save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AddMenu.this, todayOrder.class));
+
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+
+                //set title
+                alertDialogBuilder.setTitle("Hinweis");
+
+                //set Dialog Message
+                alertDialogBuilder.setMessage("Änderungen gehen verloren.").setCancelable(false)
+                        .setPositiveButton("Speichern", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                //if this button is clicked, close currect activity
+                                //ToDo: implementieren, dass die eingegebenen Daten dann tatsächlich gespeichert werden
+                                startActivity(new Intent(AddMenu.this, MenuplanKitchen.class));
+                                Toast.makeText(getApplicationContext(), "Ihre Bestellung wurde erfolgreich erfasst.", Toast.LENGTH_SHORT).show();
+                            }
+                        }).setNegativeButton("Später", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //if this button is clicked, just close the dialog box and do nothing
+                        dialog.cancel();
+                    }
+                });
+
+                //create alert dialog
+                AlertDialog alertDialog = alertDialogBuilder.create();
+
+                //show it
+                alertDialog.show();
+
             }
         });
     }

@@ -14,6 +14,7 @@ public class Model {
     // EditText title, vorspeise, mittag, nachspeise;
 
 
+
     public Model(String title, String inhaltVorspeise1, String inhaltMittagessen, String inhaltNachspeise ) {
         this.title = title;
         this.inhaltVorspeise1 = inhaltVorspeise1;
@@ -21,6 +22,10 @@ public class Model {
         this.inhaltNachspeise = inhaltNachspeise;
 
         //this.np1=np1;
+    }
+
+    public Model(String title) {
+        this.title = title;
     }
 
     public String getTitle() {
