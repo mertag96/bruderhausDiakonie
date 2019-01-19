@@ -5,6 +5,7 @@ import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -30,11 +31,11 @@ public class allOrdersKitchen extends AppCompatActivity {
     private TextView fromTxtView, toTxtView;
     final Context context = this;
     private Spinner spinner;
-    Adapter adapter;
-    List<Model> models;
-    Integer [] colors = null;
-    ViewPager viewPager;
     ArgbEvaluator argbEvaluator = new ArgbEvaluator();
+
+    private static final String TAG = "MainActivity";
+    private SectionsPageAdapter mSectionsPageAdapter;
+    private ViewPager mViewPager;
 
     //private static final String TAG = "AllOrders";
 
@@ -42,54 +43,6 @@ public class allOrdersKitchen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_orders_kitchen);
-        // Log.d(TAG, "onCreate: Started.");
-
-        models = new ArrayList<>();
-        models.add(new Model("Vorspeise"));
-        models.add(new Model("Hauptspeise"));
-        models.add(new Model("Nachtisch"));
-
-        adapter = new Adapter(models, this);
-
-        viewPager = findViewById(R.id.viewPager);
-        viewPager.setAdapter(adapter);
-        viewPager.setPadding(130,0,130,0);
-
-        Integer [] colors_temp = {
-                getResources().getColor(R.color.color1),
-                getResources().getColor(R.color.color2),
-                getResources().getColor(R.color.color3),
-                getResources().getColor(R.color.color4)
-        };
-
-        colors = colors_temp;
-
-        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                if(position < (adapter.getCount()- 1)&& position <(colors.length -1)){
-                    viewPager.setBackgroundColor(
-                            (Integer) argbEvaluator.evaluate(
-                                    positionOffset,
-                                    colors[position],
-                                    colors[position + 1]));
-
-                }else {
-                    viewPager.setBackgroundColor(colors[colors.length - 1]);
-                }
-            }
-
-            @Override
-            public void onPageSelected(int i) {
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int i) {
-
-            }
-        });
-        //implementing spinner of customer
 
         fromDate = findViewById(R.id.fromDate);
         fromTxtView = findViewById(R.id.fromtvSelectedDate);
@@ -98,6 +51,13 @@ public class allOrdersKitchen extends AppCompatActivity {
         toTxtView = findViewById(R.id.totvSelectedDate);
         allOrders = findViewById(R.id.bearbeiten);
         menuplan = findViewById(R.id.zuruck);
+
+        //Set up the viewPager with the sections adapter
+        mSectionsPageAdapter = new SectionsPageAdapter(getSupportFragmentManager());
+        mViewPager = (ViewPager) findViewById(R.id.container);
+        setupViewPager(mViewPager);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(mViewPager);
 
         //Calender for the first Button to select "Von"
         fromDate.setOnClickListener(new View.OnClickListener() {
@@ -157,6 +117,15 @@ public class allOrdersKitchen extends AppCompatActivity {
                 startActivity(new Intent(allOrdersKitchen.this, todayOrder.class));
             }
         });
+    }
+
+    private void setupViewPager(ViewPager viewPager){
+        SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
+        adapter.addFragment(new Tab1Fragment(), "Vorspeise");
+        adapter.addFragment(new Tab2Fragment(), "Hauptspeise");
+        adapter.addFragment(new Tab3Fragment(), "Nachtisch");
+        viewPager.setAdapter(adapter);
+
     }
 }
 
