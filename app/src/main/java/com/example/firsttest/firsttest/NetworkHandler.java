@@ -23,4 +23,16 @@ public class NetworkHandler {
         call.enqueue(callback);
         return call;
     }
+
+    Call get(String url, Callback callback) {
+        //RequestBody body = RequestBody.create(JSON, json);
+        //System.out.println(body);
+        Request request = new Request.Builder()
+                .url(url)
+                .get()
+                .build();
+        Call call = client.newCall(request);
+        call.enqueue(callback);
+        return call;
+    }
 }

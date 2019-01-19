@@ -13,7 +13,7 @@ public class Model {
    // private NumberPicker np1;
 
 
-    public Model(String title, String inhaltVorspeise1, String inhaltMittagessen, String inhaltNachspeise ) {
+    public Model(String title, String inhaltVorspeise1, String inhaltMittagessen, String inhaltNachspeise) {
         this.title = title;
         this.inhaltVorspeise1 = inhaltVorspeise1;
         this.inhaltMittagessen = inhaltMittagessen;
