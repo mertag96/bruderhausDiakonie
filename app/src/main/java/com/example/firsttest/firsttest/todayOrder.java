@@ -104,11 +104,12 @@ public class todayOrder extends AppCompatActivity {
         menuplan = findViewById(R.id.menuplan);
         allOrder = findViewById(R.id.allOrder);
 
+        /*
         //implementing spinner of customer
         spinner = findViewById(R.id.spinner);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(todayOrder.this, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
+        spinner.setAdapter(adapter); */
 
 
         //Calender for the first Button to select "Von"

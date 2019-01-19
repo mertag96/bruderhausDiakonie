@@ -23,14 +23,6 @@
             android:textStyle="bold"
             android:text="Heutige Bestellungen"
             />
-        <ImageButton
-            android:id="@+id/logoutButton"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:background="@drawable/threedotslogout"
-            android:layout_marginTop="2dp"
-            android:layout_marginLeft="320dp"
-            />
     </RelativeLayout>
 
     <LinearLayout
@@ -64,48 +56,19 @@
             />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
-        <Spinner
-            android:id="@+id/spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            />
-
-    </LinearLayout>
-
-    <RelativeLayout
-        android:id="@+id/relativeLayoutMain"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="130dp"
-        android:layout_marginEnd="3dp"
-        android:layout_marginBottom="45dp">
-
-
-
-    </RelativeLayout>
-
     <android.support.v4.view.ViewPager
         android:foregroundGravity="center"
         android:id="@+id/viewPager"
         android:overScrollMode="never"
         android:clipToPadding="false"
-
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="105dp"
         android:layout_marginEnd="3dp"
         android:layout_marginBottom="45dp"
         >
-
     </android.support.v4.view.ViewPager>
 
 

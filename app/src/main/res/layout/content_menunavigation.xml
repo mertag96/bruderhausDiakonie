@@ -35,14 +35,7 @@
             android:layout_marginLeft="170dp"
             android:text="Logout" />
 
-        <ImageButton
-            android:id="@+id/logoutButton"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:background="@drawable/threedotslogout"
-            android:layout_marginTop="2dp"
-            android:layout_marginLeft="320dp"
-            />
+
     </RelativeLayout>
 
     <GridLayout

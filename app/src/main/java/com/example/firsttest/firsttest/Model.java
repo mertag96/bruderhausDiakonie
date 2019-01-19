@@ -60,11 +60,11 @@ public class Model {
         this.inhaltNachspeise = inhaltNachspeise;
     }
 
-    /*  public NumberPicker getNp1() {
+      /*public NumberPicker getNp1() {
         return np1;
     }
 
     public void setNp1(NumberPicker np1) {
         this.np1 = np1;
-    } */
+    }  */
 }

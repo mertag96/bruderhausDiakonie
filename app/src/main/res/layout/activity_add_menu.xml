@@ -23,14 +23,6 @@
             android:textStyle="bold"
             android:text="Menü hinzufügen"
             />
-        <ImageButton
-            android:id="@+id/logoutButton"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:background="@drawable/threedotslogout"
-            android:layout_marginTop="2dp"
-            android:layout_marginLeft="320dp"
-            />
     </RelativeLayout>
 
     <LinearLayout
@@ -64,19 +56,7 @@
             />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
-        <Spinner
-            android:id="@+id/spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            />
-
-    </LinearLayout>
-
+<!--
     <RelativeLayout
         android:id="@+id/relativeLayoutMain"
         android:layout_width="match_parent"
@@ -86,27 +66,263 @@
         android:layout_marginTop="130dp"
         android:layout_marginEnd="3dp"
         android:layout_marginBottom="45dp">
-
-
-
     </RelativeLayout>
+-->
 
-    <android.support.v4.view.ViewPager
-        android:foregroundGravity="center"
-        android:id="@+id/viewPager"
-        android:overScrollMode="never"
-        android:clipToPadding="false"
-
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentEnd="true"
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="none"
+        android:layout_weight="1"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="100dp"
         android:layout_marginEnd="3dp"
-        android:layout_marginBottom="45dp"
-        >
+        android:layout_marginBottom="45dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="vertical">
 
-    </android.support.v4.view.ViewPager>
+            <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/tableLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dip">
+
+                <TableRow
+                    android:id="@+id/tableRow1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/txtMenu1"
+                        android:text="Menüplan 1"
+                        android:textColor="#000000"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+                </TableRow>
+                <TableRow
+                    android:id="@+id/tableRow2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp">
+
+                    <EditText
+                        android:id="@+id/vM1"
+                        android:layout_width="250dp"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="0dp"
+                        android:hint="Vorspeise"
+                        android:inputType="textMultiLine"
+                        android:singleLine="false"
+                        android:overScrollMode="always"
+                        android:scrollbarStyle="insideInset"
+                        android:scrollbars="vertical"
+                        />
+                    />
+                </TableRow>
+                <TableRow
+                    android:id="@+id/tableRow3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/hM1"
+                        android:layout_width="250dp"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="0dp"
+                        android:hint="Hauptspeise"
+                        />
+                    />
+                </TableRow>
+                <TableRow
+                    android:id="@+id/tableRow4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <EditText
+                        android:id="@+id/nM1"
+                        android:layout_width="250dp"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="0dp"
+                        android:hint="Nachspeise"
+                        />
+                    />
+                </TableRow>
+
+
+
+
+                <TableRow
+                    android:id="@+id/tableRow1a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/txtMenu2"
+                        android:text="Menüplan 2"
+                        android:textColor="#000000"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+                </TableRow>
+                <TableRow
+                    android:id="@+id/tableRow2a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp">
+
+                    <EditText
+                        android:id="@+id/vM2"
+                        android:layout_width="250dp"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="0dp"
+                        android:hint="Vorspeise"
+                        />
+                    />
+                </TableRow>
+                <TableRow
+                    android:id="@+id/tableRow3a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/hM2"
+                        android:layout_width="250dp"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="0dp"
+                        android:hint="Hauptspeise"
+                        />
+                    />
+                </TableRow>
+                <TableRow
+                    android:id="@+id/tableRow4a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <EditText
+                        android:id="@+id/nM2"
+                        android:layout_width="250dp"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="0dp"
+                        android:hint="Nachspeise"
+                        />
+                    />
+                </TableRow>
+
+
+                <TableRow
+                    android:id="@+id/tableRow1b"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/txtMenu3"
+                        android:text="Menüplan 3"
+                        android:textColor="#000000"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+                </TableRow>
+                <TableRow
+                    android:id="@+id/tableRow2b"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp">
+
+                    <EditText
+                        android:id="@+id/vM3"
+                        android:layout_width="250dp"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="0dp"
+                        android:hint="Vorspeise"
+                        />
+                    />
+                </TableRow>
+                <TableRow
+                    android:id="@+id/tableRow3b"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/hM3"
+                        android:layout_width="250dp"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="0dp"
+                        android:hint="Hauptspeise"
+                        />
+                    />
+                </TableRow>
+                <TableRow
+                    android:id="@+id/tableRow4b"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <EditText
+                        android:id="@+id/nM3"
+                        android:layout_width="250dp"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="0dp"
+                        android:hint="Nachspeise"
+                        />
+                    />
+                </TableRow>
+
+
+
+
+                <TableRow
+                    android:id="@+id/tableRow1c"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/txtMenu4"
+                        android:text="Menüplan 4"
+                        android:textColor="#000000"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+                </TableRow>
+                <TableRow
+                    android:id="@+id/tableRow2c"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp">
+
+                    <EditText
+                        android:id="@+id/vM4"
+                        android:layout_width="250dp"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="0dp"
+                        android:hint="Vorspeise"
+                        />
+                    />
+                </TableRow>
+                <TableRow
+                    android:id="@+id/tableRow3c"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/hM4"
+                        android:layout_width="250dp"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="0dp"
+                        android:hint="Hauptspeise"
+                        />
+                    />
+                </TableRow>
+                <TableRow
+                    android:id="@+id/tableRow4c"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <EditText
+                        android:id="@+id/nM4"
+                        android:layout_width="250dp"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="0dp"
+                        android:hint="Nachspeise"
+                        />
+                    />
+                </TableRow>
+
+
+            </TableLayout>
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+
+
 
 
     <LinearLayout

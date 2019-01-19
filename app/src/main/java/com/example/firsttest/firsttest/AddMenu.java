@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,16 +25,16 @@ import java.util.List;
 public class AddMenu extends AppCompatActivity {
 
     private Button fromDate, cancel, save;
-    private Spinner spinner;
-    private TextView fromTxtView;
-    private Context context = this;
-    //private static final String [] items = {"Bitte Kunde auswählen"};
 
-    ViewPager viewPager;
-    Adapter adapter;
-    List<Model> models;
-    Integer [] colors = null;
-    ArgbEvaluator argbEvaluator = new ArgbEvaluator();
+    private TextView fromTxtView, t1, t2,t3, t4;
+    private Context context = this;
+
+    private EditText  vM1, hM1, nM1;
+    private EditText vM2, hM2, nM2;
+    private EditText vM3, hM3, nM3;
+    private EditText vM4, hM4, nM4;
+
+
 
 
     @Override
@@ -42,74 +43,32 @@ public class AddMenu extends AppCompatActivity {
 
         setContentView(R.layout.activity_add_menu);
 
-        //Menuplan cikaartttimmmmmmmmmmmmmmmmmm
-        models = new ArrayList<>();
-        models.add(new Model("Menüplan 1",  "",
-                "", ""));
-        models.add(new Model("Menüplan 2",  "",
-                "", ""));
-        models.add(new Model("Menüplan 3",  "",
-                "", ""));
-        models.add(new Model("Menüplan 4",  "",
-                "", ""));
+        t1 = findViewById(R.id.txtMenu1);
+        t2 = findViewById(R.id.txtMenu2);
+        t3 = findViewById(R.id.txtMenu3);
+        t4 = findViewById(R.id.txtMenu4);
 
+        vM1 = findViewById(R.id.vM1);
+        hM1 = findViewById(R.id.hM1);
+        nM1 = findViewById(R.id.nM1);
 
+        vM2 = findViewById(R.id.vM2);
+        hM2 = findViewById(R.id.hM2);
+        nM2 = findViewById(R.id.nM2);
 
+        vM3 = findViewById(R.id.vM3);
+        hM3 = findViewById(R.id.hM3);
+        nM3 = findViewById(R.id.nM3);
 
-        adapter = new Adapter(models, this);
-
-        viewPager = findViewById(R.id.viewPager);
-        viewPager.setAdapter(adapter);
-        viewPager.setPadding(130,0,130,0);
-
-        Integer [] colors_temp = {
-                getResources().getColor(R.color.color1),
-                getResources().getColor(R.color.color2),
-                getResources().getColor(R.color.color3),
-                getResources().getColor(R.color.color4)
-        };
-
-        colors = colors_temp;
-
-        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                if(position < (adapter.getCount()- 1)&& position <(colors.length -1)){
-                    viewPager.setBackgroundColor(
-                            (Integer) argbEvaluator.evaluate(
-                                    positionOffset,
-                                    colors[position],
-                                    colors[position + 1]));
-
-                }else {
-                    viewPager.setBackgroundColor(colors[colors.length - 1]);
-                }
-            }
-
-            @Override
-            public void onPageSelected(int i) {
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int i) {
-
-            }
-        });
-
+        vM4 = findViewById(R.id.vM4);
+        hM4 = findViewById(R.id.hM4);
+        nM4 = findViewById(R.id.nM4);
 
         fromDate = findViewById(R.id.fromDate);
         fromTxtView = findViewById(R.id.fromtvSelectedDate);
 
         cancel = findViewById(R.id.AddMenu);
         save = findViewById(R.id.bestellen);
-
-        //implementing spinner of customer
-        spinner = findViewById(R.id.spinner);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(AddMenu.this, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-
 
         //Calender for the first Button to select "Von"
         fromDate.setOnClickListener(new View.OnClickListener() {
@@ -130,79 +89,51 @@ public class AddMenu extends AppCompatActivity {
                 datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis());
                 datePickerDialog.show();
             }
-
         });
 
 
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-
-                //set title
                 alertDialogBuilder.setTitle("Hinweis");
-
-                //set Dialog Message
                 alertDialogBuilder.setMessage("Änderungen gehen verloren.").setCancelable(false)
                         .setPositiveButton("Verlassen", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                //if this button is clicked, close currect activity
-                                //ToDo: implementieren, dass die eingegebenen Daten dann tatsächlich gespeichert werden
-                                startActivity(new Intent(AddMenu.this, MainActivity.class));
-                                Toast.makeText(getApplicationContext(), "Ihre Bestellung wurde erfolgreich erfasst.", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(AddMenu.this, MenuplanKitchen.class));
                             }
                         }).setNegativeButton("Abbrechen", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        //if this button is clicked, just close the dialog box and do nothing
                         dialog.cancel();
                     }
                 });
-
-                //create alert dialog
                 AlertDialog alertDialog = alertDialogBuilder.create();
-
-                //show it
                 alertDialog.show();
-
             }
         });
 
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-
-                //set title
                 alertDialogBuilder.setTitle("Hinweis");
-
-                //set Dialog Message
-                alertDialogBuilder.setMessage("Änderungen gehen verloren.").setCancelable(false)
+                alertDialogBuilder.setMessage("Möchten Sie Ihre Eingaben speichern?").setCancelable(false)
                         .setPositiveButton("Speichern", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                //if this button is clicked, close currect activity
-                                //ToDo: implementieren, dass die eingegebenen Daten dann tatsächlich gespeichert werden
                                 startActivity(new Intent(AddMenu.this, MenuplanKitchen.class));
-                                Toast.makeText(getApplicationContext(), "Ihre Bestellung wurde erfolgreich erfasst.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "Ihre Eingaben wurden erfolgreich erfasst.", Toast.LENGTH_SHORT).show();
                             }
                         }).setNegativeButton("Später", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        //if this button is clicked, just close the dialog box and do nothing
                         dialog.cancel();
                     }
                 });
-
-                //create alert dialog
                 AlertDialog alertDialog = alertDialogBuilder.create();
-
-                //show it
                 alertDialog.show();
-
             }
         });
     }
