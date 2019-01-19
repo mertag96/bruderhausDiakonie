@@ -1,6 +1,7 @@
 package com.example.firsttest.firsttest;
 
 
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView username, password;
     private ProgressBar loading;
     private int permission, userID;
+
 
 
     @Override
@@ -82,4 +84,5 @@ public class MainActivity extends AppCompatActivity {
                     }
             }});
     }
+
 }
