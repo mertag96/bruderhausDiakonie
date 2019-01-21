@@ -37,6 +37,15 @@
         <activity android:name=".AddMenu" />
         <activity android:name=".todayOrder" />
         <activity android:name=".allOrdersKitchen"></activity>
+        <activity
+            android:name=".MenuplanClient"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".MyOrdersClient"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".editOrderClient"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

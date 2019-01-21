@@ -8,8 +8,7 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp"
-    tools:context=".Menuplan">
-
+    tools:context=".MyOrdersClient">
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -21,10 +20,9 @@
             android:textSize="25dp"
             android:textColor="#000000"
             android:textStyle="bold"
-            android:text="@string/menuplan_header"
+            android:text="Meine Bestellungen"
             />
     </RelativeLayout>
-
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -41,7 +39,7 @@
             android:padding="10dp"
             android:layout_marginTop="40dp"
             android:layout_marginLeft="0dp"
-            android:text="Datum auswählen"
+            android:text="Von"
             />
         <TextView
             android:id="@+id/fromtvSelectedDate"
@@ -58,48 +56,49 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
-        <Spinner
-            android:id="@+id/spinner"
-            android:layout_width="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/toDate"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="#CED3D8"
+            android:padding="10dp"
             android:layout_marginTop="100dp"
+            android:layout_marginLeft="0dp"
+            android:text="Bis"
+            />
+        <TextView
+            android:id="@+id/totvSelectedDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toDate"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="40dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
             />
     </LinearLayout>
 
-
-
-    <RelativeLayout
-        android:id="@+id/relativeLayoutMain"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="130dp"
-        android:layout_marginEnd="3dp"
-        android:layout_marginBottom="45dp">
+        android:layout_height="545dp"
+        android:layout_marginTop="160dp"
+        android:orientation="vertical">
 
-    </RelativeLayout>
+        <ListView
+            android:id="@+id/order_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
 
-
-    <android.support.v4.view.ViewPager
-        android:foregroundGravity="center"
-        android:id="@+id/viewPager"
-        android:overScrollMode="never"
-        android:clipToPadding="false"
-
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="130dp"
-        android:layout_marginEnd="3dp"
-        android:layout_marginBottom="45dp"
-        >
-
-    </android.support.v4.view.ViewPager>
+        </ListView>
+    </LinearLayout>
 
 
     <LinearLayout
@@ -108,20 +107,20 @@
         android:layout_width="match_parent"
         android:layout_alignParentBottom="true">
         <Button
-            android:id="@+id/AddMenu"
+            android:id="@+id/myOrdersBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-
-            android:text="Menü Hinzfg.">
+            android:text="Neue Bestellung aufgeben">
         </Button>
         <Button
-            android:id="@+id/bestellen"
+            android:id="@+id/loeschenBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Heutige Bestell.">
+            android:text="Ausgewähltes löschen">
         </Button>
     </LinearLayout>
+
 
 </RelativeLayout>

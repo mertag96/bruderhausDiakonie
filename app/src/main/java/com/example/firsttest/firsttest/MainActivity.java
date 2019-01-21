@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     private Intent goToMenuNavi, goToAllOrders;
      Button butAnmelden, test;
     private TextView username, password;
-    private ProgressBar loading;
+    //private ProgressBar loading;
     private int permission, userID;
 
 
@@ -61,10 +61,11 @@ public class MainActivity extends AppCompatActivity {
                     //checking that username and password fields are filled before the redirecting can work
                     if(username.getText().toString().trim().equals("") || password.getText().toString().trim().equals("")) {
                         Toast.makeText(getApplicationContext(), "Bitte Benutzername und Passwort eingeben", Toast.LENGTH_SHORT).show();
-
                     }else if(username.getText().toString().trim().equals("k1")){
                         startActivity(new Intent(MainActivity.this, MenuplanKitchen.class));
 
+                    }else if(username.getText().toString().trim().equals("c1") ){
+                        startActivity(new Intent(MainActivity.this, MenuplanClient.class));
                     }else{
                         login();
                     }
