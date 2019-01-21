@@ -90,14 +90,14 @@ public class customAdapterForCheckbox  extends BaseAdapter {
         tvDessert.setText(modelArrayList.get(position).getDessert());
 
         checkBox.setChecked(modelArrayList.get(position).getSelected());
-
+        /*
         checkBox.setTag(R.integer.btnplusview, convertView);
         checkBox.setTag( position);
         checkBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                /*View tempview = (View) holder.checkBox.getTag(R.integer.btnplusview);
+                View tempview = (View) holder.checkBox.getTag(R.integer.btnplusview);
                 TextView tv = (TextView) tempview.findViewById(R.id.date);
                 TextView tvMenu = (TextView) tempview.findViewById(R.id.menuType);
                 TextView tvAppetizer = (TextView) tempview.findViewById(R.id.appetizer);
@@ -110,10 +110,10 @@ public class customAdapterForCheckbox  extends BaseAdapter {
                     modelArrayList.get(pos).setSelected(false);
                 }else {
                     modelArrayList.get(pos).setSelected(true);
-                }*/
+                }
 
             }
-        });
+        });*/
 
         return convertView;
     }

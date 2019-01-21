@@ -71,7 +71,7 @@ public class MyOrdersClient extends AppCompatActivity implements checkboxInterfa
         final Date tomorrow = calendar.getTime();
         toTxtView.setText(sdf.format(tomorrow));
 
-        floatingPinkButton = findViewById(R.id.floatingActionButton);
+        //floatingPinkButton = findViewById(R.id.floatingActionButton);
 
         newOrder = findViewById(R.id.myOrdersBtn);
         cancelSelected = findViewById(R.id.loeschenBtn);
