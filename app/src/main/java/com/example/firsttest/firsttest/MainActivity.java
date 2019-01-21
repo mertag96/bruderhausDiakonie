@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private Intent goToMenuNavi, goToAllOrders;
      Button butAnmelden, test;
     private TextView username, password;
-    private ProgressBar loading;
+    //private ProgressBar loading;
     private int permission, userID;
 
 
@@ -29,15 +29,6 @@ public class MainActivity extends AppCompatActivity {
         username= findViewById((R.id.inputUsername));
         password= findViewById((R.id.inputPassword));
         test = findViewById(R.id.test);
-
-        test.setOnClickListener(new OnClickListener(){
-            @Override
-            public void onClick(View v){
-                startActivity(new Intent(MainActivity.this, AllOrders.class));
-            }
-        });
-
-
 
             //Navigating to menunavigation page after listen on anmelden button
             butAnmelden.setOnClickListener(new OnClickListener(){
@@ -52,8 +43,11 @@ public class MainActivity extends AppCompatActivity {
 
                         Toast.makeText(getApplicationContext(), "Bitte Benutzername und Passwort eingeben", Toast.LENGTH_SHORT).show();
 
-
-                    }else{
+                    }
+                    else if(username.getText().toString().trim().equals("c1") ){
+                        startActivity(new Intent(MainActivity.this, MenuplanClient.class));
+                    }
+                    else{
                         //Loading Panel wird hier erst angezeigt, bis es zur nächsten Activity übergegangen wird
                         if(permission == 1){
                             goToMenuNavi = new Intent(MainActivity.this, Menunavigation.class);
@@ -69,10 +63,11 @@ public class MainActivity extends AppCompatActivity {
                           //  loading.setVisibility(View.VISIBLE);
                             startActivity(goToMenuNavi);
                           //  loading.setVisibility(View.INVISIBLE);
-                        }else{
+                        }
+                        //else{
                             //go to menuplan
                             //add permission as extras to intent
-                        }
+                        //}
                     }
             }});
     }

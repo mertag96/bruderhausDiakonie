@@ -32,6 +32,12 @@
         <item>Dummy 3</item>
     </string-array>
     <string name="usertype_prompt">Bitte wählen Sie aus</string>
+    <string name="dessert">dessert</string>
+    <string name="appetizer">appetizer</string>
+    <string name="maincourse">mainCourse</string>
+    <string name="date">date</string>
+    <string name="menutype">menuType</string>
+    <string name="todo">TODO</string>
 
 
 </resources>
