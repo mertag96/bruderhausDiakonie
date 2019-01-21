@@ -500,7 +500,6 @@ public class alluser extends AppCompatActivity implements HorizontalScroll.Scrol
             addRowToTableC(""+ datarow.optString("ID"));
             for(int j =0; j<ids.length;j++){
 
-                System.out.println("Aufbau" + datarow.optString(ids[i]));
                 addColumnToTableAtD(i, datarow.optString(ids[j]));
 
 

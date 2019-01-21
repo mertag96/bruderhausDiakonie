@@ -50,16 +50,6 @@ public class MainActivity extends AppCompatActivity {
         butAnmelden= findViewById(R.id.buttonAnmelden2);
         username= findViewById((R.id.inputUsername));
         password= findViewById((R.id.inputPassword));
-        /*test = findViewById(R.id.test);
-
-        test.setOnClickListener(new OnClickListener(){
-            @Override
-            public void onClick(View v){
-                startActivity(new Intent(MainActivity.this, alluser.class));
-            }
-        });*/
-
-
 
             //Navigating to menunavigation page after listen on anmelden button
             butAnmelden.setOnClickListener(new OnClickListener(){
@@ -75,18 +65,6 @@ public class MainActivity extends AppCompatActivity {
                     }else if(username.getText().toString().trim().equals("k1")){
                         startActivity(new Intent(MainActivity.this, MenuplanKitchen.class));
 
-                    }
-                    else{
-                        //Loading Panel wird hier erst angezeigt, bis es zur nächsten Activity übergegangen wird
-                        if(permission == 1){
-                            goToMenuNavi = new Intent(MainActivity.this, Menunavigation.class);
-                            goToMenuNavi.putExtra("permission",permission);
-
-                            //username mitgeben an AllOrders kp aber ob das klappt
-                            String putusername = username.getText().toString();
-
-                            goToAllOrders = new Intent(MainActivity.this, AllOrders.class);
-                            goToAllOrders.putExtra("Username", putusername);
                     }else{
                         login();
                     }
@@ -127,11 +105,6 @@ public class MainActivity extends AppCompatActivity {
                             //goToMenuNavi.putExtra("permission",permission);
                             startActivity(goToMenuNavi);
                           //  loading.setVisibility(View.INVISIBLE);
-                        }
-                        else{
-
-                            //go to menuplan
-                            //add permission as extras to intent
                         }
                     });
                 }
