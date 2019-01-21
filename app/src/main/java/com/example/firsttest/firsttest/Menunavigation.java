@@ -28,7 +28,7 @@ public class Menunavigation extends AppCompatActivity {
         allUser = findViewById(R.id.alleUser);
         menuplan = findViewById(R.id.menuplan);
         allOrders = findViewById(R.id.allorders);
-        imgB = findViewById(R.id.logoutButton);
+        //imgB = findViewById(R.id.logoutButton);
         logVisible = findViewById(R.id.logVisible);
         logVisible.setVisibility(View.GONE);
 
@@ -66,7 +66,7 @@ public class Menunavigation extends AppCompatActivity {
         logVisible = findViewById(R.id.logVisible);
         logVisible.setVisibility(View.GONE);
         //implement of the threedotsimageclick. If the threedots will be clicked, then the logout button comes out- or the opposite
-        imgB.setOnClickListener(new View.OnClickListener() {
+        /*imgB.setOnClickListener(new View.OnClickListener() {
             //ToDo = The functionality of the logout button missed
             @Override
             public void onClick(View v) {
@@ -114,6 +114,6 @@ public class Menunavigation extends AppCompatActivity {
             }
 
 
-        });
+        });*/
     }
 }

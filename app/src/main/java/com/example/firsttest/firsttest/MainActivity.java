@@ -29,14 +29,14 @@ public class MainActivity extends AppCompatActivity {
         butAnmelden= findViewById(R.id.buttonAnmelden2);
         username= findViewById((R.id.inputUsername));
         password= findViewById((R.id.inputPassword));
-        test = findViewById(R.id.test);
+        /*test = findViewById(R.id.test);
 
         test.setOnClickListener(new OnClickListener(){
             @Override
             public void onClick(View v){
                 startActivity(new Intent(MainActivity.this, alluser.class));
             }
-        });
+        });*/
 
 
 

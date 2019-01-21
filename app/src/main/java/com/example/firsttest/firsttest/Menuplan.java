@@ -104,7 +104,7 @@ public class Menuplan extends AppCompatActivity implements AdapterView.OnItemSel
         fromDate = findViewById(R.id.fromDate);
         fromTxtView = findViewById(R.id.fromtvSelectedDate);
 
-        back = findViewById(R.id.zuruck);
+        //back = findViewById(R.id.zuruck);
         order = findViewById(R.id.bestellen);
 
         //implementing spinner of customer
@@ -143,12 +143,12 @@ public class Menuplan extends AppCompatActivity implements AdapterView.OnItemSel
         });
 
 
-        back.setOnClickListener(new View.OnClickListener() {
+        /*back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Menuplan.this, Menunavigation.class));
             }
-        });
+        });*/
 
         order.setOnClickListener(new View.OnClickListener() {
             @Override
