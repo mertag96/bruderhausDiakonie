@@ -23,6 +23,15 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.okhttp.Callback;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.Response;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.zip.Inflater;
 
@@ -66,6 +75,7 @@ public class alluser extends AppCompatActivity implements HorizontalScroll.Scrol
 
     VerticalScroll scrollViewC;
     VerticalScroll scrollViewD;
+    private JSONArray da;
 
     /*
          This is for counting how many columns are added in the row.
@@ -130,6 +140,7 @@ public class alluser extends AppCompatActivity implements HorizontalScroll.Scrol
         /*
             Mandatory Content
          */
+        //getAllUsers();
         relativeLayoutMain= (RelativeLayout)findViewById(R.id.relativeLayoutMain);
         getScreenDimension();
         initializeRelativeLayout();
@@ -149,18 +160,26 @@ public class alluser extends AppCompatActivity implements HorizontalScroll.Scrol
         */
         for(int i=0; i<1; i++){
             // addColumnsToTableB("Head" + i, i);
-            addColumnsToTableB("ID", 0);
-            addColumnsToTableB("Vorname", 1);
-            addColumnsToTableB("Nachname", 2);
-            addColumnsToTableB("Berechtigung", 3);
-            addColumnsToTableB("Telefon", 4);
+            //addColumnsToTableB("ID", 0);
+            addColumnsToTableB("VORNAME", 0);
+            addColumnsToTableB("NACHNAME", 1);
+            addColumnsToTableB("STRASSE", 2);
+            addColumnsToTableB("HAUSNUMMER", 3);
+            addColumnsToTableB("ZUSATZADRESSE", 4);
+            addColumnsToTableB("PLZ", 5);
+            addColumnsToTableB("ORT", 6);
+            addColumnsToTableB("TELEFONNUMMER", 7);
+            addColumnsToTableB("ROLE", 8);
+
         }
 
         //hier ist es noch nicht dynamisch die Zeilen
-        for(int i=0; i<10; i++){
+        getAllUsers();
+        /*for(int i=0; i<10; i++){
             initializeRowForTableD(i);
             addRowToTableC(""+ i);
             for(int j=0; j<tableColumnCountB; j++){ addColumnToTableAtD(i, "Dummy ID: " + "["+ i + "]" + "["+ j + "]");
+
 
 
                 tableRow.setOnClickListener(new View.OnClickListener() {
@@ -174,7 +193,7 @@ public class alluser extends AppCompatActivity implements HorizontalScroll.Scrol
                     }
                 });
             }
-        }
+        }*/
 
 
     }
@@ -190,6 +209,7 @@ public class alluser extends AppCompatActivity implements HorizontalScroll.Scrol
 
     //! diese Werte so lassen, sie beinträchtigen sonst negativ das design
     private void initializeRelativeLayout(){
+
         relativeLayoutA= new RelativeLayout(getApplicationContext());
         relativeLayoutA.setId(R.id.relativeLayoutA);
         relativeLayoutA.setPadding(0,0,0,0);
@@ -205,6 +225,7 @@ public class alluser extends AppCompatActivity implements HorizontalScroll.Scrol
         relativeLayoutD= new RelativeLayout(getApplicationContext());
         relativeLayoutD.setId(R.id.relativeLayoutD);
         relativeLayoutD.setPadding(0,0,0,0);
+
 
         //für was screen_Height ist, check ich immernoch nicht so ganz
         relativeLayoutA.setLayoutParams(new RelativeLayout.LayoutParams(SCREEN_WIDTH/5,SCREEN_HEIGHT/15));
@@ -255,17 +276,22 @@ public class alluser extends AppCompatActivity implements HorizontalScroll.Scrol
     }
 
     private  void initializeTableLayout(){
+
         tableLayoutA= new TableLayout(getApplicationContext());
         tableLayoutA.setPadding(0,0,0,0);
         tableLayoutB= new TableLayout(getApplicationContext());
         tableLayoutB.setPadding(0,0,0,0);
         tableLayoutB.setId(R.id.tableLayoutB);
+
         tableLayoutC= new TableLayout(getApplicationContext());
         tableLayoutC.setPadding(0,0,0,0);
+
+
         tableLayoutD= new TableLayout(getApplicationContext());
         tableLayoutD.setPadding(0,0,0,0);
 
         TableLayout.LayoutParams layoutParamsTableLayoutA= new TableLayout.LayoutParams(SCREEN_WIDTH/5, SCREEN_HEIGHT/5);
+
         tableLayoutA.setLayoutParams(layoutParamsTableLayoutA);
         //  tableLayoutA.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
         this.relativeLayoutA.addView(tableLayoutA);
@@ -462,7 +488,70 @@ public class alluser extends AppCompatActivity implements HorizontalScroll.Scrol
             }
         });
         */
+
+    public void rebuildTable(JSONArray data) throws JSONException {
+
+        //System.out.println("Aufbau Methode wird gestartet");
+        System.out.println("Aufbaudaten " + data.toString());
+        String[] ids= {"VORNAME","NACHNAME","STRASSE","HAUSNUMMER","ZUSATZADRESSE","PLZ","ORT","TELEFONNUMMER","ROLE"};
+        for(int i=0; i<data.length(); i++){
+            initializeRowForTableD(i);
+            JSONObject datarow = data.getJSONObject(i);
+            addRowToTableC(""+ datarow.optString("ID"));
+            for(int j =0; j<ids.length;j++){
+
+                System.out.println("Aufbau" + datarow.optString(ids[i]));
+                addColumnToTableAtD(i, datarow.optString(ids[j]));
+
+
+
+                tableRow.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(alluser.this, "Test", Toast.LENGTH_SHORT).show();
+                        //Implement stuff!!!!!
+                    }
+                });
+
+
+
+            }
+        }
     }
+
+    public void getAllUsers(){
+        NetworkHandler networkHelper = new NetworkHandler();
+
+        networkHelper.get("http://134.103.176.137:8081/users", new Callback() {
+            @Override
+            public void onFailure(Request request, IOException e) {
+            }
+            @Override
+            public void onResponse(Response response) throws IOException {
+                String responseStr = response.body().string();
+                //System.out.println("Aufbau Text = "+responseStr);
+                try {
+                    da = new JSONArray(responseStr);
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                rebuildTable(da);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    });
+
+                } catch (JSONException e) {
+                    System.out.println(e);
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+}
 
     /*
     private void fillData(){

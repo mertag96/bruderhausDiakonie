@@ -12,6 +12,7 @@ import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Adapter extends PagerAdapter {
@@ -23,6 +24,7 @@ public class Adapter extends PagerAdapter {
     private List<Model> models;
     private LayoutInflater layoutInflater;
     private Context context;
+    private ArrayList<NumberPicker[]> nplist = new ArrayList<>();
 
 
     public Adapter(List<Model> models, Context context) {
@@ -40,19 +42,47 @@ public class Adapter extends PagerAdapter {
         return view.equals(o);
     }
 
+    public int[] getNumberPickerValue (int menue){
+        int[] temp = new int[3];
+        temp[0] = nplist.get(menue)[0].getValue();
+        temp[1] = nplist.get(menue)[1].getValue();
+        temp[2] = nplist.get(menue)[2].getValue();
+        return temp;
+    }
+
+
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position){
         layoutInflater = LayoutInflater.from(context);
         View view = layoutInflater.inflate(R.layout.item, container, false);
-
-
         TextView title, inhaltVorspeise1, inhaltMittagessen, inhaltNachspeise;
+
+        NumberPicker[] nparr = new NumberPicker[3];
 
         title = view.findViewById(R.id.title);
         inhaltVorspeise1= view.findViewById(R.id.inhaltVorspeise1);
         inhaltMittagessen = view.findViewById(R.id.inhaltMittagessen);
         inhaltNachspeise = view.findViewById(R.id.inhaltNachspeise);
+
+
+        nparr[0] = view.findViewById(R.id.numberpicker1);
+        nparr[1] = view.findViewById(R.id.numberpicker2);
+        nparr[2] = view.findViewById(R.id.numberpicker3);
+
+        nparr[0].setMinValue(0);
+        nparr[0].setMaxValue(5);
+        nparr[0].setWrapSelectorWheel(true);
+
+        nparr[1].setMinValue(0);
+        nparr[1].setMaxValue(5);
+        nparr[1].setWrapSelectorWheel(true);
+
+        nparr[2].setMinValue(0);
+        nparr[2].setMaxValue(5);
+        nparr[2].setWrapSelectorWheel(true);
+
+        nplist.add(nparr);
 
         /*
   numberPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
