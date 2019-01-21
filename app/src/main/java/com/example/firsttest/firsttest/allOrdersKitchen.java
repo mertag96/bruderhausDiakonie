@@ -61,7 +61,7 @@ public class allOrdersKitchen extends AppCompatActivity {
         //Set up the viewPager with the sections adapter
         mSectionsPageAdapter = new SectionsPageAdapter(getSupportFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.container);
-        setupViewPager(mViewPager);
+        //setupViewPager(mViewPager);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
