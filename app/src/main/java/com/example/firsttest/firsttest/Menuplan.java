@@ -40,8 +40,10 @@ public class Menuplan extends AppCompatActivity implements AdapterView.OnItemSel
 
     private Button fromDate, back, order;
     private Spinner spinner;
+    private String userID, userName;
     private TextView fromTxtView;
     private Context context = this;
+    private int tag, monat, jahr;
     //  private static final String firstItem = "Bitte Kunde auswählen";
 
     ViewPager viewPager;
@@ -59,6 +61,8 @@ public class Menuplan extends AppCompatActivity implements AdapterView.OnItemSel
 
         setContentView(R.layout.activity_menuplan);
 
+        userID = getIntent().getExtras().get("userid").toString();
+        userName = getIntent().getExtras().get("username").toString();
 
         models = new ArrayList<>();
         getMenu();
@@ -95,6 +99,9 @@ public class Menuplan extends AppCompatActivity implements AdapterView.OnItemSel
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                                tag = day;
+                                monat = month;
+                                jahr = year;
                                 fromTxtView.setText(day + "." + (month + 1) + "." + year);
                             }
                         }, year, month, dayOfMonth);
@@ -103,15 +110,6 @@ public class Menuplan extends AppCompatActivity implements AdapterView.OnItemSel
             }
 
         });
-
-
-        /*back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Menuplan.this, Menunavigation.class));
-            }
-        });*/
-
         order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -127,10 +125,8 @@ public class Menuplan extends AppCompatActivity implements AdapterView.OnItemSel
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 placeOrder();
-                                //if this button is clicked, close currect activity
-                                //ToDo: implementieren, dass die eingegebenen Daten dann tatsächlich gespeichert werden
-                                startActivity(new Intent(Menuplan.this, AllOrders.class));
-                                Toast.makeText(getApplicationContext(), "Ihre Bestellung wurde erfolgreich erfasst.", Toast.LENGTH_SHORT).show();
+                                //startActivity(new Intent(Menuplan.this, AllOrders.class));
+                                //Toast.makeText(getApplicationContext(), "Ihre Bestellung wurde erfolgreich erfasst.", Toast.LENGTH_SHORT).show();
                             }
                         }).setNegativeButton("Nein", new DialogInterface.OnClickListener() {
                     @Override
@@ -209,7 +205,7 @@ public class Menuplan extends AppCompatActivity implements AdapterView.OnItemSel
                     case 1: menu1.add(0,datarow.optString(ids[1]));break;
                     case 2: menu1.add(1,datarow.optString(ids[1]));break;
                     case 3: menu1.add(2,datarow.optString(ids[1]));break;
-                                } break;
+                } break;
                 case 2: switch(Integer.parseInt(datarow.optString(ids[3]))){
                     case 1: menu2.add(0,datarow.optString(ids[1]));break;
                     case 2: menu2.add(1,datarow.optString(ids[1]));break;
@@ -280,19 +276,58 @@ public class Menuplan extends AppCompatActivity implements AdapterView.OnItemSel
 
     public void placeOrder() {
         NetworkHandler networkHelper = new NetworkHandler();
+        int[] menu1,menu2,menu3,menu4;
         JSONObject json = new JSONObject();
-       /* try {
-            json.put("vorname", vorname.getText());
+        menu1 = adapter.getNumberPickerValue(0);
+        menu2 = adapter.getNumberPickerValue(1);
+        menu3 = adapter.getNumberPickerValue(2);
+        menu4 = adapter.getNumberPickerValue(3);
+       try {
+           json.put("v1", menu1[0]);
+           json.put("h1", menu1[1]);
+           json.put("d1", menu1[2]);
+           json.put("v2", menu2[0]);
+           json.put("h2", menu2[1]);
+           json.put("d2", menu2[2]);
+           json.put("v3", menu3[0]);
+           json.put("h3", menu3[1]);
+           json.put("d3", menu3[2]);
+           json.put("v4", menu4[0]);
+           json.put("h4", menu4[1]);
+           json.put("d4", menu4[2]);
+           json.put("day",tag);
+           json.put("month",monat);
+           json.put("year",jahr);
+           json.put("userid",Integer.parseInt(userID));
+           json.put("orderfor", fromDate.getText());
         } catch (JSONException e) {
             e.printStackTrace();
-        }*/
-
-        int[] temp;
-        for(int i=0;i<4;i++){
-            System.out.println("Menu "+i+" ");
-            temp = adapter.getNumberPickerValue(i);
-            System.out.println("Picker 1 :" + temp[0] + " / Picker 2: "+ temp[1] +" / Picker 3: " + temp[2]);
         }
+        networkHelper.post("http://134.103.176.137:8081/orderslist", json.toString(), new Callback() {
+            @Override
+            public void onFailure(Request request, IOException e) {
+            }
+            @Override
+            public void onResponse(Response response) throws IOException {
+                String responseStr = response.body().string();
+                if(response.code()==200){
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(getApplicationContext(), "Bestellung erfolgreich!", Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }else{
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(getApplicationContext(), "Bestellung fehlerhaft!", Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }
+            }
+        });
+
     }
 }
 

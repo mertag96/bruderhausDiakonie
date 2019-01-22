@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 public class Menunavigation extends AppCompatActivity {
     ImageView newUser, allUser, menuplan, allOrders;
+    String userID, userName;
+    Intent goToRegister, goToAllUser, goToMenuPlan, goToAllOrders;
     ImageButton imgB;
     Button logVisible;
     final Context context = this;
@@ -32,34 +34,48 @@ public class Menunavigation extends AppCompatActivity {
         logVisible = findViewById(R.id.logVisible);
         logVisible.setVisibility(View.GONE);
 
+        userID = getIntent().getExtras().get("userid").toString();
+        userName = getIntent().getExtras().get("username").toString();
+
 
         //Navigating to 4 different activities
         newUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Menunavigation.this, RegisterActivity.class));
+                goToRegister = new Intent(Menunavigation.this, RegisterActivity.class);
+                goToRegister.putExtra("userid",userID);
+                goToRegister.putExtra("username",userName);
+                startActivity(goToRegister);
             }
         });
-
 
         allUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Menunavigation.this, alluser.class));
+                goToAllUser = new Intent(Menunavigation.this, alluser.class);
+                goToAllUser.putExtra("userid",userID);
+                goToAllUser.putExtra("username",userName);
+                startActivity(goToAllUser);
             }
         });
 
         menuplan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Menunavigation.this, Menuplan.class));
+                goToMenuPlan = new Intent(Menunavigation.this, Menuplan.class);
+                goToMenuPlan.putExtra("userid",userID);
+                goToMenuPlan.putExtra("username",userName);
+                startActivity(goToMenuPlan);
             }
         });
 
         allOrders.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Menunavigation.this, AllOrders.class));
+                goToAllOrders = new Intent(Menunavigation.this, AllOrders.class);
+                goToAllOrders.putExtra("userid",userID);
+                goToAllOrders.putExtra("username",userName);
+                startActivity(goToAllOrders);
             }
         });
 
