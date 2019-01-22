@@ -13,4 +13,33 @@
         android:layout_marginTop="40dp"
         android:id="@+id/HauptspeiseTab2"/>
 
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#3d455b"
+        android:layout_alignParentLeft="true" >
+
+        <HorizontalScrollView
+            android:id="@+id/hscrll2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <RelativeLayout
+                android:id="@+id/RelativeLayout2"
+                android:layout_width="fill_parent"
+                android:layout_gravity="center"
+                android:layout_height="fill_parent"
+                android:orientation="vertical" >
+
+                <TableLayout
+                    android:id="@+id/table_main2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true" >
+                </TableLayout>
+            </RelativeLayout>
+        </HorizontalScrollView>
+    </ScrollView>
+
 </RelativeLayout>
