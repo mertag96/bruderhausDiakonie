@@ -46,8 +46,8 @@ public class alluser extends AppCompatActivity implements HorizontalScroll.Scrol
   // private String [][] tableContent;
    private Button goback, newUser;
    private SearchView searchview;
-
-
+   private String userID, userName;
+   private Intent goToMenuNav, goToRegister;
 
 
 
@@ -97,46 +97,29 @@ public class alluser extends AppCompatActivity implements HorizontalScroll.Scrol
         goback = findViewById(R.id.zuruck);
         newUser = findViewById(R.id.neuerBenutzer);
 
+        userID = getIntent().getExtras().get("userid").toString();
+        userName = getIntent().getExtras().get("username").toString();
+
         goback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(alluser.this, Menunavigation.class));
+                goToMenuNav = new Intent(alluser.this, Menunavigation.class);
+                goToMenuNav.putExtra("userid",userID);
+                goToMenuNav.putExtra("username",userName);
+                startActivity(goToMenuNav);
             }
         });
 
         newUser.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(alluser.this, RegisterActivity.class));
+                goToRegister = new Intent(alluser.this, RegisterActivity.class);
+                goToRegister.putExtra("userid",userID);
+                goToRegister.putExtra("username",userName);
+                startActivity(goToRegister);
             }
         });
 
-
-        //ToDo= SearchView bundle
-        /* Implementing the SearchView: Also ich dachte dass wir es vielleicht so machen: Dass die daten die sich in der datenbank befinden,
-        also von user, dass wir diese daten herholen und alles in ein liste einspeichern. Diese SeachView soll nicht nach allen angeben suchen können,
-        für den einstieg soll er z.b seine Treffer nur auf nachnamen suchen. Das wäre di beste eingrenzung der gefundenen treffer.
-        also werden die nachnamen von datenbank in eine liste gespeichert. die Searchview sucht in der Liste dann die treffer
-         */
-/*
-        searchview.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                if(tableLayoutD.contains(query)){
-
-                }else{
-
-                }
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                return false;
-            }
-        });
-
-*/
         /*
             Mandatory Content
          */
@@ -175,27 +158,6 @@ public class alluser extends AppCompatActivity implements HorizontalScroll.Scrol
 
         //hier ist es noch nicht dynamisch die Zeilen
         getAllUsers();
-        /*for(int i=0; i<10; i++){
-            initializeRowForTableD(i);
-            addRowToTableC(""+ i);
-            for(int j=0; j<tableColumnCountB; j++){ addColumnToTableAtD(i, "Dummy ID: " + "["+ i + "]" + "["+ j + "]");
-
-
-
-                tableRow.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Toast.makeText(alluser.this, "Test", Toast.LENGTH_SHORT).show();
-                        //System.out.println("Zeilenr:" + tr.getId() + "Kundenname: " + tv3.getText());
-
-                        System.out.println("Zeilennr:" + tableRow.getId());
-                        //Implement stuff!!!!!
-                    }
-                });
-            }
-        }*/
-
-
     }
 
     private void getScreenDimension(){
@@ -551,55 +513,4 @@ public class alluser extends AppCompatActivity implements HorizontalScroll.Scrol
         });
     }
 }
-
-    /*
-    private void fillData(){
-        AllUserTableTop usertable = new AllUserTableTop();
-        ArrayList<AllUserTableTop> userlist = new ArrayList<>();
-
-        //ToDo: getUsertable from database and insert it here dynamically instead static
-
-        usertable.setId("1");
-        usertable.setUsername("Dummy");
-        usertable.setFirstname("Firstname");
-        usertable.setLastname("Lastname");
-        usertable.setPermissionID("2");
-        usertable.setPhone("07432987632434324234324234");
-        userlist.add(usertable);
-
-        usertable.setId("1");
-        usertable.setUsername("test2");
-        usertable.setPermissionID("2");
-        usertable.setPhone("074329876");
-        userlist.add(usertable);
-        usertable.setId("1");
-
-        usertable.setUsername("test3");
-        usertable.setPermissionID("2");
-        usertable.setPhone("074329876");
-        userlist.add(usertable);
-
-        usertable.setId("1");
-        usertable.setUsername("Dummy");
-        usertable.setPermissionID("2");
-        usertable.setPhone("074329876");
-        userlist.add(usertable);
-
-
-        tableContent = new String[userlist.size()][6];
-
-        for(int i=0; i<userlist.size(); i++){
-            AllUserTableTop a=userlist.get(i);
-
-            tableContent[i][0] = a.getId();
-            tableContent[i][1] = a.getUsername();
-            tableContent[i][2] = a.getFirstname();
-            tableContent[i][3] = a.getLastname();
-            tableContent[i][4] = a.getPermissionID();
-            tableContent[i][5] = a.getPhone();
-
-        } */
-
-
-
 

@@ -30,6 +30,8 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
 
     private Spinner spinner;
     private Button register, back;
+    String userID, userName;
+    Intent goToMenuNav;
     final Context context = this;
     private String item;
     private TextView vorname, nachname, strasse, hausnummer, zusatzadresse, plz, ort, telefonnummer, loginUsername, loginPassword;
@@ -50,6 +52,9 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         telefonnummer= findViewById((R.id.telefonnummer));
         loginUsername= findViewById((R.id.loginUsername));
         loginPassword= findViewById((R.id.loginPassword));
+
+        userID = getIntent().getExtras().get("userid").toString();
+        userName = getIntent().getExtras().get("username").toString();
 
 
         //spinner
@@ -154,7 +159,10 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
                         @Override
                         public void run() {
                             Toast.makeText(getApplicationContext(), "Registrierung erfolgreich!", Toast.LENGTH_LONG).show();
-                            startActivity(new Intent(RegisterActivity.this, Menunavigation.class));
+                            goToMenuNav = new Intent(RegisterActivity.this, Menunavigation.class);
+                            goToMenuNav.putExtra("userid",userID);
+                            goToMenuNav.putExtra("username",userName);
+                            startActivity(goToMenuNav);
                         }
                     });
                 }else{
